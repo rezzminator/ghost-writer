@@ -4,6 +4,20 @@ A reference used during Mode A (extract) to capture the writer's lexical choices
 
 Read this file alongside `extraction-checklist.md` and `cognitive-moves.md`. The mechanical layer captures *how* sentences are shaped; the cognitive layer captures *what moves* the writer makes on an idea; this layer captures *which specific words* gets reached for.
 
+## Compute it; don't estimate it
+
+**The countable parts of this layer must be produced by `scripts/index_corpus.py`, not by eyeballing the corpus.** Estimating word frequencies by reading is lossy and unreliable — a human (or a model skimming) will swear a writer "uses 'leverage' constantly" when the real count is 3 in 50,000 words. The indexer counts every word and gives you exact figures: the top 200 content words, the full function-word table, the synonym-binaries tally across all inflections, ranked hedges and intensifiers, and candidate pet-phrase n-grams.
+
+Run it first (Mode A Step 2):
+
+```bash
+python3 scripts/index_corpus.py <corpus> --top 200 --json out.json
+```
+
+Then transcribe its output into Sections 6.1–6.6 verbatim. Reserve human judgment for what the indexer can't compute: which top-content words are *voice* vs *topic* (6.1), casualism markers in context (6.7), profanity in context (6.8), sentence-final shape (6.9), topic-shift habits (6.10), question shape (6.11). The index gives you the skeleton; you add the reading.
+
+**Capture at least the top 200 content words** for a substantive corpus — not a hand-picked 15. The long tail matters: word #150 ("merely", "till") is often more identifying than word #5, because the common words are shared by everyone and the mid-frequency words are where individual voice lives.
+
 ## What this layer is
 
 Vocabulary fingerprint is the set of word-level choices the writer makes, observable across the corpus as **consistent picks among alternatives**. The diagnostic question is not "does the writer use the word X" — almost any writer uses any common word at least once. The diagnostic question is: when the writer had a choice between near-synonyms, which did they pick *consistently*?
@@ -26,15 +40,21 @@ The line between vocabulary fingerprint and topic vocabulary is the cross-piece 
 
 When reading the corpus, scan along each dimension independently. Capture: the rule, frequency or count, quoted instances, and classification (VOICE / PLATFORM / BORDERLINE — most vocabulary is VOICE).
 
-### 1. Top-N content lexicon
+### 1. Distinctive lexicon (keyness, NOT raw frequency)
 
-The N most-frequent content words (excluding function words). Reveals thematic bias and breadth. For a substantive corpus (5000+ words), capture the top 30. For thinner corpora, top 15 is enough — anything more is noise.
+**Raw word frequency is the wrong tool for vocabulary fingerprint, and this is the most important thing to get right.** The most-frequent words in *every* English writer are the same generic words — "one, like, get, work, good, people, things, way." Ranking by raw count surfaces those and tells you nothing about the individual. (If your top word is "one", you used the wrong ranking.)
 
-Skip stopwords (the, a, of, and, etc.) — those are the function-word layer below.
+What you want is **keyness**: how much *more* the writer uses a word than baseline English. The indexer computes this — its "Distinctive vocabulary (keyness-ranked)" section is what feeds this profile section, *not* the raw-frequency list. Keyness surfaces "merely", "till", "schlep", "founders" — the words that are actually this writer — instead of "good" and "way".
+
+Then comes the judgment step the script **cannot** do: split the keyness list into **voice** (travels across the writer's pieces regardless of subject — "merely", "till", "tend", "simply") vs **topic** (bound to what this corpus happens to be about — "startup", "lisp", "founders", "vcs"). Both score high keyness; only the *voice* words become generation rules. Topic words are explicitly excluded so generated text doesn't drift to the writer's usual subjects. Also drop residual names and boilerplate the filter missed (a domain, a co-founder's name). **This voice-vs-topic call requires a reader — it's the clearest example of why the indexer and human judgment are partners, not substitutes.**
+
+Capture the top ~40–60 voice words from the keyness list. Keep the raw-frequency top-200 only as a reference for the quantitative/function-word layer; don't mistake it for the fingerprint.
+
+Skip stopwords (the, a, of, and, one, etc.) — those are the function-word layer below.
 
 ### 2. Function-word frequency
 
-Top-15 function words (articles, prepositions, common conjunctions, common pronouns, modal verbs, "be" forms). This is the layer hardest to fake during generation and most diagnostic during authorship attribution.
+The top function words from the indexer (articles, prepositions, common conjunctions, common pronouns, modal verbs, "be" forms). This is the layer hardest to fake during generation and most diagnostic during authorship attribution.
 
 The signal isn't the absolute frequencies (every English text leans on "the", "of", "to") — it's the *relative* frequencies. Does this writer use "I" three times more than "you"? Does "but" outrank "however" by 8:1? Does "we" appear at all? These ratios are the fingerprint.
 

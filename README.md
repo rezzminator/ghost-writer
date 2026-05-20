@@ -1,6 +1,6 @@
 # Ghostwriter
 
-**Version:** 1.0.0 · **License:** MIT · **Repo:** [github.com/mreza0100/ghost-writer](https://github.com/mreza0100/ghost-writer)
+**Version:** 1.2.0 · **License:** MIT · **Repo:** [github.com/mreza0100/ghost-writer](https://github.com/mreza0100/ghost-writer)
 
 A Claude Code skill that captures how someone writes — across four layers: the mechanical fingerprint (sentence rhythm, punctuation density, formatting quirks), the cognitive moves (how they frame problems, what they refuse, where they concretize, how they shape conclusions), the rhetorical structure (the essay-scale shape: opening pattern, full argument arc, scale-shifts, example-texture mix, reference horizon, self-reference patterns, term-coining, aphorism placement), and the vocabulary fingerprint (the specific words they reach for when alternatives exist) — from a corpus of their writing, and generates new text that reproduces all four layers.
 
@@ -115,13 +115,19 @@ The line between an in-scope cognitive move and an out-of-scope vibe descriptor 
 
 The repo ships with one default profile at `profiles/human.md`. It's the **negative profile** — instead of capturing one writer's fingerprint, it bans the full 29-pattern LLM-ism catalog at the mechanical layer, the default-LLM reasoning moves (both-sides-ism, 5-angle topic surveys, reflexive synthesis, "it depends" without follow-through, false consensus framing) at the cognitive layer, the default-LLM rhetorical patterns (five-point listicles, "In conclusion," closers, manufactured paradox openers, sub-headers every 200 words, footnote cosplay) at the rhetorical layer, and the default-LLM vocabulary (perhaps / potentially / quite / utilize / leverage) at the vocabulary layer.
 
-Use `human` when:
+Use `human` directly when:
 
 - You want to "humanize" some AI-sounding text — no specific writer, just remove the tells.
 - You want generic-but-human writing and haven't profiled anyone yet.
 - A specific person's profile is too thin to use confidently — fall back to `human`.
 
 If you don't name a profile, `human` is the default.
+
+### `human` is a base layer every profile inherits
+
+This is the key thing to understand: `human` is not just one profile you pick instead of a person profile. It's the **floor that every generation stands on**. Every output is `human` (strip the LLM tells) + the person's fingerprint (add their patterns) on top. Generating as Paul Graham still removes AI tells — the PG fingerprint is layered onto humanized prose, never bolted onto default-Claude prose.
+
+The LLM-ism scan therefore runs for **every** profile, every time. A person profile changes which patterns are permitted and at what density; it never turns the scan off. A documented rate (e.g., PG's em-dash at ~1.0/1000w) is a *ceiling*, not a license — and pure rendering tells like the literal `--` double-hyphen stay banned for every profile regardless. If a writer genuinely uses em-dashes, they're rendered as `—` at the documented low rate.
 
 ## Installation
 
@@ -131,32 +137,29 @@ Copy the skill files into your project's Claude Code skills directory:
 
 ```bash
 # From your project root
-mkdir -p .claude/skills/gwriter/references
-mkdir -p .claude/skills/gwriter/profiles
+mkdir -p .claude/skills/gwriter/{functions,references,scripts,profiles}
 
 cp SKILL.md .claude/skills/gwriter/SKILL.md
-cp references/extraction-checklist.md .claude/skills/gwriter/references/
-cp references/llm-isms.md .claude/skills/gwriter/references/
-cp references/cognitive-moves.md .claude/skills/gwriter/references/
-cp references/rhetorical-structure.md .claude/skills/gwriter/references/
-cp references/vocabulary-fingerprint.md .claude/skills/gwriter/references/
+cp functions/*.md .claude/skills/gwriter/functions/
+cp references/*.md .claude/skills/gwriter/references/
+cp scripts/*.py .claude/skills/gwriter/scripts/
 cp profiles/human.md .claude/skills/gwriter/profiles/
 ```
 
-Then use it in Claude Code:
+Then use it in Claude Code by asking naturally ("build a voice profile from these essays", "write this in my voice", "humanize this text") — the skill triggers on the description and routes to the right workflow.
 
-```
-/gwriter profile     — extract a style profile from a corpus
-/gwriter calibrate   — calibrate a profile with feedback
-/gwriter generate    — generate text in a profiled style (defaults to `human`)
-/gwriter audit       — audit a profile against recent writing
-/gwriter update      — update a profile from audit findings
-/gwriter list        — list available profiles
-```
+### Architecture: router + functions
+
+`SKILL.md` is a thin **router** (~70 lines) that loads on every trigger. It carries the cross-cutting principles and dispatches to one of two workflow files based on the task:
+
+- **`functions/generate-profile.md`** — extract / calibrate / audit / update a profile (Modes A / A.5 / C / D). Long and detailed, but only loads when you're building a profile (a once-per-writer task).
+- **`functions/use.md`** — generate text in a profiled voice, or humanize AI text (Mode B). Loads when you're writing.
+
+This progressive-disclosure split keeps the always-loaded cost low while letting the workflows be as detailed as they need to be.
 
 ### As a standalone reference
 
-The files work as a methodology guide even without Claude Code. `SKILL.md` contains the complete extraction and generation methodology. The `references/` directory has the LLM-ism catalog, extraction checklist, cognitive-moves methodology, rhetorical-structure methodology, and vocabulary-fingerprint methodology.
+The files work as a methodology guide even without Claude Code. `SKILL.md` routes; `functions/` holds the two workflows; `references/` holds the per-layer methodology; `scripts/` holds the indexer and verifier; `USE.md` is a human-facing quick-start.
 
 ## Key design decisions
 
@@ -170,19 +173,26 @@ The files work as a methodology guide even without Claude Code. `SKILL.md` conta
 
 **VOICE vs PLATFORM classification.** Without this, a profile built from Slack messages will produce Slack-style text in every format. The classification prevents platform conventions from being encoded as personal voice.
 
+**Compute, don't estimate — on both ends.** Two scripts make the countable parts deterministic. At extraction, `scripts/index_corpus.py` produces word frequencies, the top-200 lexicon, function-word ratios, synonym binaries, punctuation rates, and burstiness — instead of eyeballing the corpus (estimation is lossy and confidently wrong: "this writer uses 'leverage' constantly" when the real count is 3 in 50k words). At generation, `scripts/check_output.py` verifies the draft mechanically — the literal `--`, AI vocabulary, chatbot closers, burstiness floor, em-dash-over-ceiling, synonym-binary inversions — so the self-review doesn't depend on the model noticing its own leaks. The indexer separating the em-dash character `—` from the literal `--` is what caught the most common leak in the first place. Human judgment is reserved for what genuinely needs reading: cognitive moves, rhetorical structure, tone, and which high-frequency words are voice vs. topic.
+
 **Corpus is the source of truth.** Every rule must have a quoted example. If you can't find a quote that demonstrates the rule, the rule isn't there. Under-claiming beats over-claiming.
 
 ## Files
 
 ```
-SKILL.md                             — Complete skill specification (modes, principles, templates)
+SKILL.md                             — Router (~70 lines): cross-cutting principles + dispatch to a function
+functions/generate-profile.md        — Workflow: extract / calibrate / audit / update a profile (Modes A/A.5/C/D) + the profile template
+functions/use.md                     — Workflow: generate text in a voice / humanize AI text (Mode B)
+USE.md                               — Human-facing quick-start guide
+scripts/index_corpus.py              — Corpus indexer (extraction): exact word frequencies, keyness-ranked distinctive lexicon, function-word table, synonym binaries, spelling variants, punctuation rates, burstiness (stdlib only)
+scripts/check_output.py              — Output verifier (generation): checks a draft for `--`, AI vocabulary, chatbot closers, low burstiness, em-dash-over-ceiling, synonym-binary inversions; exit-codes on hard fails (stdlib only)
 references/extraction-checklist.md   — Corpus vetting rules and 8-dimension mechanical extraction grid
 references/llm-isms.md               — 29-pattern catalog of LLM-tells with detection cues
 references/cognitive-moves.md        — Cognitive-moves layer extraction (7 categories + 8 prompts)
 references/rhetorical-structure.md   — Rhetorical-structure layer extraction (12 categories + 12 prompts)
 references/vocabulary-fingerprint.md — Vocabulary-fingerprint layer extraction (12 categories + 12 prompts)
 profiles/human.md                    — Built-in default profile (negative profile / humanizer)
-profiles/                            — Where extracted profiles are stored
+profiles/                            — Where extracted profiles are stored (user profiles gitignored)
 ```
 
 ## The LLM-ism catalog
@@ -264,8 +274,12 @@ Compare the `version` field in your installed `SKILL.md` frontmatter against the
 ```bash
 cd /path/to/ghost-writer-repo && git pull
 
-# Core skill
+# Core skill + router targets (functions/ are required by the router)
 cp SKILL.md /your/project/.claude/skills/ghostwriter/SKILL.md
+cp functions/*.md /your/project/.claude/skills/ghostwriter/functions/
+
+# Scripts (indexer + verifier)
+cp scripts/*.py /your/project/.claude/skills/ghostwriter/scripts/
 
 # References (check for new files)
 cp references/*.md /your/project/.claude/skills/ghostwriter/references/

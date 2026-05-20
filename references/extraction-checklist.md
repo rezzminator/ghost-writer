@@ -44,18 +44,20 @@ For each dimension, look for **patterns that repeat across the corpus** (not sin
 
 ## Quantitative numbers to record
 
-Compute these from the corpus. They're cheap, hard to fake during generation, and become the diagnostic baseline for Mode C (audit) — drift shows up here before you can see it any other way.
+**Run `scripts/index_corpus.py` to get all of these exactly — do not estimate them by reading.** The indexer computes every item below in one pass, plus the em-dash-vs-`--` split, the question rate, and the full vocabulary tables. Hand-estimation is the old way and it's unreliable; the script exists precisely so these numbers are counts, not impressions.
+
+The numbers it produces (the diagnostic baseline for Mode C audit — drift shows up here first):
 
 - **Average sentence length** (words/sentence) and **standard deviation (= burstiness)**
 - **Average paragraph length** in sentences
-- **Type-token ratio** in a fixed window (~unique words / total words in first 500 words of long-form samples) — vocabulary diversity
-- **Em-dash, semicolon, colon, ellipsis rates per 1000 words**
-- **Contraction rate** — actual contractions / contraction-eligible verb constructions
-- **Hedge-word rate** ("kind of", "sort of", "maybe", "might", "I think", "probably", "sort of") per 1000 words
-- **Top 5 sentence-initial connectors** with counts ("so", "but", "and", "anyway", "honestly", etc.)
-- **Exclamation rate / 1000 words**
+- **Type-token ratio** (first 500 words) — vocabulary diversity
+- **Em-dash `—`, double-hyphen `--`, semicolon, colon, ellipsis rates per 1000 words** (the `—`/`--` split matters: a profile that counts only `—` undercounts dash usage and the model then leaks `--`)
+- **Contraction rate**
+- **Hedge-word rate** per 1000 words, with the specific hedges ranked
+- **Top sentence-initial connectors** with counts
+- **Exclamation and question rates / 1000 words**
 
-If the corpus is small (under ~1500 words total), say "rough estimates from a small corpus" and round generously. Don't fake precision.
+Only fall back to manual counting when the corpus can't be reached as files (e.g. pasted samples). In that case say "rough estimates from a small corpus" and round generously. Don't fake precision.
 
 ## What human review catches that automated extraction misses
 
@@ -69,4 +71,4 @@ The patterns automated extraction reliably misses (per Dumont):
 - **The shape of disagreement and pushback.** Most corpora bias toward neutral writing; the writer's voice in conflict is often invisible from a generic sample set. If possible, include at least one piece where the writer disagrees with someone.
 - **Cross-language carry-over.** For multilingual writers, certain habits (punctuation conventions, sentence rhythm) carry across languages while vocabulary doesn't. This is hard to spot without explicitly looking.
 
-The Mode A.5 calibration round exists to surface these. The 7-tag feedback (`WRONG / OVERSTATED / UNDERSTATED / MISSING / NEEDS_NUANCE / LLM_ISM / NOT_ME`) maps directly to fixes — see SKILL.md.
+The Mode A.5 calibration round exists to surface these. The 7-tag feedback (`WRONG / OVERSTATED / UNDERSTATED / MISSING / NEEDS_NUANCE / LLM_ISM / NOT_ME`) maps directly to fixes — see `functions/generate-profile.md`.

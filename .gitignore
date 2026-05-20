@@ -13,7 +13,7 @@ Thumbs.db
 # Generated corpora / local skill test outputs
 tmp/
 
-# Personal user profiles — only the built-in `human` profile is tracked.
-# User-generated profiles (paul-graham.md, etc.) stay local.
-profiles/*
-!profiles/human.md
+scripts/__pycache__
+
+profiles/*.bak
+profiles/*.json

@@ -57,7 +57,7 @@ If you reach for one of these, stop and pick a plainer word. "Use" not "utilize"
 
 ### Banned style patterns (catalog patterns 14–23)
 
-- **Em-dashes: max ~3 per 1000 words.** Prefer commas, periods, or rewriting. The em-dash is the single most identifiable formatting tell of LLM text because LLMs use it as a universal clarification tool. Replace with colons for explanation, parentheses for asides, periods for new thoughts.
+- **Em-dashes: max ~3 per 1000 words, and never the literal `--`.** The em-dash is the single most identifiable formatting tell of LLM text because LLMs use it as a universal clarification tool. Replace with colons for explanation, parentheses for asides, periods for new thoughts. The double-hyphen `--` is a rendering tell on top of the density problem — never produce it under any profile. If a profiled writer genuinely uses em-dashes, render the real character `—` at their documented (low) rate; the default here is to avoid them.
 - **No boldface for key terms.** Don't bold concepts in every paragraph. Bold sparingly or not at all.
 - **No inline-header lists.** "**Performance:** Performance improved by 40%" — convert to prose or use a real header.
 - **Headings in sentence case, not Title Case.** "Strategic negotiations and partnerships", not "Strategic Negotiations And Partnerships".
