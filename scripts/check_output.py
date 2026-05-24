@@ -20,7 +20,7 @@ Two layers of checks:
 Usage:
     python3 check_output.py draft.txt
     python3 check_output.py draft.txt --profile-stats profile_index.json
-    python3 check_output.py draft.txt --profile profiles/paul-graham.md
+    python3 check_output.py draft.txt --profile profiles/paul-graham/profile.md
     cat draft.txt | python3 check_output.py -
 
 Exit code: 0 if no FAIL-level issues, 1 if any FAIL. (WARN does not fail.)

@@ -56,12 +56,12 @@ This is **not** a persona-direction skill. It captures observable, quotable mech
 
 ## Bundled scripts
 
-- `scripts/index_corpus.py` — corpus indexer (extraction). Computes word frequencies, the **keyness-ranked distinctive lexicon** (not raw frequency), function-word table, synonym binaries, spelling variants, punctuation rates (incl. `—` vs `--`), burstiness. `python3 scripts/index_corpus.py <corpus> --top 200 --json profiles/<name>.index.json`. Save the JSON next to the profile.
-- `scripts/check_output.py` — output verifier (generation). Checks a draft against the `human` base layer + a profile's densities; exit-codes on hard fails. `python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>.index.json`.
+- `scripts/index_corpus.py` — corpus indexer (extraction). Computes word frequencies, the **keyness-ranked distinctive lexicon** (not raw frequency), function-word table, synonym binaries, spelling variants, punctuation rates (incl. `—` vs `--`), burstiness. `python3 scripts/index_corpus.py <corpus> --top 200 --json profiles/<name>/index.json`. Save the JSON next to the profile.
+- `scripts/check_output.py` — output verifier (generation). Checks a draft against the `human` base layer + a profile's densities; exit-codes on hard fails. `python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>/index.json`.
 
 ## Built-in profile: `human`
 
-`profiles/human.md` is the negative profile and the default fallback — it bans the LLM-ism catalog and default-LLM moves/vocabulary instead of capturing one writer. Use it directly to humanize text or for generic-but-human writing, and as the base layer under every person profile. Don't run calibration (A.5) or audit (C) on it — there's no corpus to drift from.
+`profiles/human/profile.md` is the negative profile and the default fallback — it bans the LLM-ism catalog and default-LLM moves/vocabulary instead of capturing one writer. Use it directly to humanize text or for generic-but-human writing, and as the base layer under every person profile. Don't run calibration (A.5) or audit (C) on it — there's no corpus to drift from.
 
 ## Version & updates
 
@@ -72,4 +72,4 @@ This is **not** a persona-direction skill. It captures observable, quotable mech
 - **1.1.0** — Split into router + `functions/generate-profile.md` + `functions/use.md` for progressive disclosure (router stays cheap on every trigger; heavy workflows load only when needed). Added keyness-ranked distinctive lexicon and spelling-variant detection to the indexer.
 - **1.0.0** — Four-layer architecture, five modes (A/A.5/B/C/D), built-in human profile, compute-don't-estimate scripts.
 
-To update: `git pull` the repo, then re-copy `SKILL.md`, `functions/`, `references/`, `scripts/`, and `profiles/human.md` into your installed skill directory.
+To update: `git pull` the repo, then re-copy `SKILL.md`, `functions/`, `references/`, `scripts/`, and `profiles/human/profile.md` into your installed skill directory.

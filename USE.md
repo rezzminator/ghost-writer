@@ -38,8 +38,8 @@ With Claude Code open in this repo, point it at the skill and your corpus:
 ```
 Read SKILL.md and follow Mode A to extract a style profile for <name> from
 the corpus in <path/to/corpus>. Run scripts/index_corpus.py for the computed
-layers, save its JSON to profiles/<name>.index.json, extract all four layers,
-and save the profile to profiles/<name>.md. Then run Mode A.5 (calibration).
+layers, save its JSON to profiles/<name>/index.json, extract all four layers,
+and save the profile to profiles/<name>/profile.md. Then run Mode A.5 (calibration).
 ```
 
 What the skill does, in order:
@@ -51,7 +51,7 @@ What the skill does, in order:
    - *Cognitive moves* — how the writer frames problems, tests claims, concludes.
    - *Rhetorical structure* — opening shapes, argument arcs, term-coining, scale-shifts.
    - *Vocabulary* — the distinctive lexicon (split into **voice** vs **topic** by hand — the script ranks distinctiveness but can't tell "merely" (voice) from "startups" (topic)).
-4. **Saves** `profiles/<name>.md` plus the `profiles/<name>.index.json` sidecar.
+4. **Saves** `profiles/<name>/profile.md` plus the `profiles/<name>/index.json` sidecar.
 5. **Calibrates (Mode A.5)** — generates a few samples and asks you to tag what's off (`WRONG`, `OVERSTATED`, `MISSING`, `NOT_ME`, etc.). Your tags get applied once.
 
 Depth scales with the corpus: a large corpus should produce a dense, exhaustively-evidenced profile, not a skeleton. If it comes back thin from a big corpus, tell Claude to keep reading — it stopped early.
@@ -63,7 +63,7 @@ Depth scales with the corpus: a large corpus should produce a dense, exhaustivel
 ## 3. Write with a profile (Mode B)
 
 ```
-Using profiles/<name>.md, write <the thing you want> in <name>'s voice.
+Using profiles/<name>/profile.md, write <the thing you want> in <name>'s voice.
 ```
 
 The skill reads the profile top-down (bans first, then cognitive moves, then rhetorical structure, then vocabulary), drafts, then runs a three-pass self-review — including `scripts/check_output.py` against the profile's index JSON — before delivering. The output ends with a short "Rules applied" note so you can see which patterns it leaned on.
@@ -80,7 +80,7 @@ If you don't name a profile, the skill defaults to `human` — generic-but-human
 Humanize this text with the human profile: <paste text>
 ```
 
-Uses `profiles/human.md` (the negative profile) to rewrite the text — removing the 29 LLM-isms, the default reasoning shapes, and the literal `--` — without imposing any specific person's voice. To humanize *and* match a person, name their profile instead.
+Uses `profiles/human/profile.md` (the negative profile) to rewrite the text — removing the 29 LLM-isms, the default reasoning shapes, and the literal `--` — without imposing any specific person's voice. To humanize *and* match a person, name their profile instead.
 
 ---
 
@@ -89,7 +89,7 @@ Uses `profiles/human.md` (the negative profile) to rewrite the text — removing
 You can run the checker directly on any draft:
 
 ```
-python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>.index.json
+python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>/index.json
 ```
 
 It exits non-zero on hard fails (literal `--`, chatbot closers, sycophancy) and warns on AI vocabulary, low burstiness, em-dash-over-ceiling, and synonym-binary inversions. Useful as a git pre-commit gate or a quick check on anything — even text the skill didn't write.
@@ -101,7 +101,7 @@ It exits non-zero on hard fails (literal `--`, chatbot closers, sycophancy) and 
 Writing styles drift. Every 6–8 weeks of active writing, or after a big change (new job, new platform):
 
 ```
-Audit profiles/<name>.md against these recent pieces: <paths>. Then update it.
+Audit profiles/<name>/profile.md against these recent pieces: <paths>. Then update it.
 ```
 
 - **Audit (Mode C)** re-runs the indexer on the new writing and produces a drift report in four buckets — *strong* (rules that hold), *thin* (weakening), *missing* (new patterns), *fix* (decayed). It doesn't change the profile.
@@ -117,8 +117,8 @@ Audit profiles/<name>.md against these recent pieces: <paths>. Then update it.
 | `scripts/check_output.py` | Generation (Mode B) | Verifies a draft against the humanization base layer + a profile's densities. Exit-codes on hard fails. |
 
 ```
-python3 scripts/index_corpus.py <corpus> --top 200 --json profiles/<name>.index.json
-python3 scripts/check_output.py <draft> --profile-stats profiles/<name>.index.json
+python3 scripts/index_corpus.py <corpus> --top 200 --json profiles/<name>/index.json
+python3 scripts/check_output.py <draft> --profile-stats profiles/<name>/index.json
 ```
 
 ---
@@ -128,5 +128,5 @@ python3 scripts/check_output.py <draft> --profile-stats profiles/<name>.index.js
 - **Vocabulary = keyness, not raw frequency.** If a profile's top "voice words" are generic ("one", "good", "people", "way"), it used raw counts by mistake. The fingerprint is the words the writer uses *more than baseline English* ("merely", "till"), split from topic words ("startups", "lisp").
 - **The indexer counts; the human reads.** They're partners. The script can't tell voice from topic, can't read cognitive moves, can't judge tone. It removes the guesswork from what's countable so judgment goes where it's needed.
 - **Single-format corpus → single-format profile.** Patterns from an essays-only corpus mis-fire on email/Slack. The profile flags this; calibrate before cross-format use.
-- **Profiles are personal.** Only `profiles/human.md` ships in git; user profiles and their `.index.json` sidecars stay local (see `.gitignore`).
+- **Profiles are personal.** Only `profiles/human/profile.md` ships in git; user profiles and their `.index.json` sidecars stay local (see `.gitignore`).
 - **Installed-skill path caveat:** when the skill lives in `.claude/skills/gwriter/`, call scripts by their full path, since Claude Code runs bash from the project root. When the repo itself is the working directory, the relative paths in SKILL.md resolve directly.

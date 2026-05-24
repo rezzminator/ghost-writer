@@ -1,9 +1,9 @@
 # Style Profile: Paul Graham (multi-format)
 
 Source corpus: **~1.31M words across 3 written formats.**
-- **PRIMARY — essays:** ~570,700 words, 231 essays from paulgraham.com (~2001–2024). The core voice. Canonical index: `profiles/paul-graham.index.json`.
-- **SECONDARY — HN comments:** ~339,000 words, ~9,980 comments by `pg` on Hacker News (2006–2024), cleaned of `Source:`/timestamp/URL boilerplate. The comment register. Index: `profiles/paul-graham.hn.index.json` (raw) + cleaned re-index.
-- **SECONDARY — tweets:** ~560 words, 15 verified public tweets (2020–2025). Short-form. **Tiny — directional only.** Index: `profiles/paul-graham.x.index.json` (raw).
+- **PRIMARY — essays:** ~570,700 words, 231 essays from paulgraham.com (~2001–2024). The core voice. Canonical index: `profiles/paul-graham/essays.index.json`.
+- **SECONDARY — HN comments:** ~339,000 words, ~9,980 comments by `pg` on Hacker News (2006–2024), cleaned of `Source:`/timestamp/URL boilerplate. The comment register. Index: `profiles/paul-graham/hn.index.json` (raw) + cleaned re-index.
+- **SECONDARY — tweets:** ~560 words, 15 verified public tweets (2020–2025). Short-form. **Tiny — directional only.** Index: `profiles/paul-graham/x.index.json` (raw).
 - **CROSS-CHECK ONLY (not in voice stats):** interviews + talks (transcribed speech, contaminated by interviewer edits and page chrome); *On Lisp* / *ANSI Common Lisp* (PG's writing but technical-reference register — characterized as a distinct mode in §11, stats not folded in).
 - **SKIPPED:** technical/arc (code), context/, mail/ (near-empty).
 
@@ -163,7 +163,7 @@ All of §4 is **[PLATFORM · essay]** — these are essay-scale shapes that do N
 
 ## 5. Quantitative layer (computed; transcribed verbatim)
 
-Three columns where the data exists. **Essays = canonical** (`paul-graham.index.json`). HN = cleaned re-index (boilerplate stripped). Tweets = 15-tweet sample, **directional only**.
+Three columns where the data exists. **Essays = canonical** (`essays.index.json`). HN = cleaned re-index (boilerplate stripped). Tweets = 15-tweet sample, **directional only**.
 
 | Metric | Essays (PRIMARY) | HN comments | Tweets (n=15) |
 |---|---|---|---|
@@ -351,11 +351,11 @@ American + one archaism ("till"), identical in essays and HN. [VOICE · XF]
 - **Now a multi-format corpus (clears the 2+ formats bar):** essays (570.7k) + HN comments (339k) + tweets (560). The VOICE-vs-PLATFORM calls in this profile are **evidenced, not guessed** — that's the upgrade over the prior single-format version.
 - **Tweet sample is tiny (15 tweets / ~560w).** Tweet-mode (§11.C) rates are directional; everything there is low-confidence. Get more verified tweets before trusting densities.
 - **HN burstiness (σ 35) is inflated by a few pasted lists** (e.g. a 5,090-token spam-domain dump with no sentence punctuation). The real comment rhythm is short. Treat HN σ as unreliable; the sentence-length mean (14.9w) and paragraph length (2.0) are sound.
-- **HN raw index is heavily boilerplate-polluted** (`Source:` URLs, ISO timestamps, "news/ycombinator/item/id"). The numbers in §5/§6 for HN are from a **cleaned re-index** (headers, source lines, and the top-level title stripped); the raw `paul-graham.hn.index.json` is kept only for provenance.
+- **HN raw index is heavily boilerplate-polluted** (`Source:` URLs, ISO timestamps, "news/ycombinator/item/id"). The numbers in §5/§6 for HN are from a **cleaned re-index** (headers, source lines, and the top-level title stripped); the raw `hn.index.json` is kept only for provenance.
 - **Disagreement voice is now evidenced** (HN), filling the gap the prior profile flagged. Adversarial/long-form refutation is still thinner than agreement; if writing a full rebuttal essay, calibrate.
 - **Export artifacts:** essay `.md` files carry a "Want to start a startup? Get funded by Y Combinator." line and URL/title headers; negligible against 570.7k words but they inflate "title"/"url" keyness (dropped). The essay `--` (446) vs `—` (565) split is an export artifact — render `—` only.
 - **Speech and the Lisp books are cross-checks, not voice sources** (§11.D/E) — their stats are deliberately excluded from §5/§6.
 - "actually" (essays 297 / HN 550), "merely" (240), "incidentally" (HN 135) read like LLM-isms but are genuine, cross-format-confirmed PG voice; allowed at corpus density (§1).
 
 ## Changelog
-- 2026-05-20 **Created as a multi-format profile** from essays (231 docs, 570.7k words) + HN comments (~9,980 comments, 339k words cleaned) + 15 verified tweets. Per-format indexes computed by `scripts/index_corpus.py` (`paul-graham.index.json` canonical; `.hn.index.json`, `.x.index.json` for the secondary formats; HN re-indexed after boilerplate-cleaning). Headline change vs the prior single-format version: every layer re-classified VOICE-cross-format vs PLATFORM-essay with cross-format evidence; real HN-comment mode and tweet mode added (§11.B/C); disagreement-voice added from HN (§3); em-dash reclassified essay-PLATFORM; strange/weird found register-conditional. Numbers transcribed verbatim from the indexers.
+- 2026-05-20 **Created as a multi-format profile** from essays (231 docs, 570.7k words) + HN comments (~9,980 comments, 339k words cleaned) + 15 verified tweets. Per-format indexes computed by `scripts/index_corpus.py` (`essays.index.json` canonical; `hn.index.json`, `x.index.json` for the secondary formats; HN re-indexed after boilerplate-cleaning). Headline change vs the prior single-format version: every layer re-classified VOICE-cross-format vs PLATFORM-essay with cross-format evidence; real HN-comment mode and tweet mode added (§11.B/C); disagreement-voice added from HN (§3); em-dash reclassified essay-PLATFORM; strange/weird found register-conditional. Numbers transcribed verbatim from the indexers.

@@ -113,7 +113,7 @@ The line between an in-scope cognitive move and an out-of-scope vibe descriptor 
 
 ## Built-in profile: `human`
 
-The repo ships with one default profile at `profiles/human.md`. It's the **negative profile** — instead of capturing one writer's fingerprint, it bans the full 29-pattern LLM-ism catalog at the mechanical layer, the default-LLM reasoning moves (both-sides-ism, 5-angle topic surveys, reflexive synthesis, "it depends" without follow-through, false consensus framing) at the cognitive layer, the default-LLM rhetorical patterns (five-point listicles, "In conclusion," closers, manufactured paradox openers, sub-headers every 200 words, footnote cosplay) at the rhetorical layer, and the default-LLM vocabulary (perhaps / potentially / quite / utilize / leverage) at the vocabulary layer.
+The repo ships with one default profile at `profiles/human/profile.md`. It's the **negative profile** — instead of capturing one writer's fingerprint, it bans the full 29-pattern LLM-ism catalog at the mechanical layer, the default-LLM reasoning moves (both-sides-ism, 5-angle topic surveys, reflexive synthesis, "it depends" without follow-through, false consensus framing) at the cognitive layer, the default-LLM rhetorical patterns (five-point listicles, "In conclusion," closers, manufactured paradox openers, sub-headers every 200 words, footnote cosplay) at the rhetorical layer, and the default-LLM vocabulary (perhaps / potentially / quite / utilize / leverage) at the vocabulary layer.
 
 Use `human` directly when:
 
@@ -143,7 +143,8 @@ cp SKILL.md .claude/skills/gwriter/SKILL.md
 cp functions/*.md .claude/skills/gwriter/functions/
 cp references/*.md .claude/skills/gwriter/references/
 cp scripts/*.py .claude/skills/gwriter/scripts/
-cp profiles/human.md .claude/skills/gwriter/profiles/
+mkdir -p .claude/skills/gwriter/profiles/human
+cp profiles/human/profile.md .claude/skills/gwriter/profiles/human/
 ```
 
 Then use it in Claude Code by asking naturally ("build a voice profile from these essays", "write this in my voice", "humanize this text") — the skill triggers on the description and routes to the right workflow.
@@ -191,7 +192,7 @@ references/llm-isms.md               — 29-pattern catalog of LLM-tells with de
 references/cognitive-moves.md        — Cognitive-moves layer extraction (7 categories + 8 prompts)
 references/rhetorical-structure.md   — Rhetorical-structure layer extraction (12 categories + 12 prompts)
 references/vocabulary-fingerprint.md — Vocabulary-fingerprint layer extraction (12 categories + 12 prompts)
-profiles/human.md                    — Built-in default profile (negative profile / humanizer)
+profiles/human/profile.md            — Built-in default profile (negative profile / humanizer)
 profiles/                            — Where extracted profiles are stored (user profiles gitignored)
 ```
 
@@ -284,8 +285,9 @@ cp scripts/*.py /your/project/.claude/skills/ghostwriter/scripts/
 # References (check for new files)
 cp references/*.md /your/project/.claude/skills/ghostwriter/references/
 
-# Profiles (human.md gets updated; your custom profiles are untouched)
-cp profiles/human.md /your/project/.claude/skills/ghostwriter/profiles/
+# Profiles (human/profile.md gets updated; your custom profiles are untouched)
+mkdir -p /your/project/.claude/skills/ghostwriter/profiles/human
+cp profiles/human/profile.md /your/project/.claude/skills/ghostwriter/profiles/human/
 ```
 
 ## License

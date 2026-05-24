@@ -31,7 +31,7 @@ So Pass 1 of the self-review runs for **every** profile, every time. A person pr
 
 1. If the user names a profile, use it.
 2. If the user provides a corpus and asks for new text in one go, do `functions/generate-profile.md` Mode A first (quick), then come back.
-3. If neither, default to `profiles/human.md` and note which profile was used in the Rules-applied note. Don't ask for routine requests — defaulting to `human` is right and trivial to override.
+3. If neither, default to `profiles/human/profile.md` and note which profile was used in the Rules-applied note. Don't ask for routine requests — defaulting to `human` is right and trivial to override.
 
 ---
 
@@ -72,7 +72,7 @@ Three failure modes; a single pass catches one and misses the others.
 **Pass 1 — LLM-ism scan (runs for EVERY profile).** Applies the `human` base layer; never skipped. **Run it mechanically first** if you have file access:
 
 ```bash
-python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>.index.json
+python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>/index.json
 ```
 
 It exit-codes 1 on hard fails (`--`, chatbot closers, sycophancy) and warns on AI vocabulary, banned transitions, negation-parallelism, low burstiness, em-dash over ceiling, and synonym-binary inversions. Fix every FAIL and review every WARN against the profile. Then do the human read for what the script can't judge (subtle phrasing, tone). No file access? Skim against `references/llm-isms.md` — cues: em-dashes, "moreover/furthermore/actually", neat tricolons, balanced paragraph lengths, "it's not just X, it's Y", "navigate the complexities", "in today's fast-paced world", chatbot closers, sycophancy.

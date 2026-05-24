@@ -61,7 +61,7 @@ If the corpus fails any rule, say so explicitly in *Confidence notes*. A tentati
 Before reading anything by hand:
 
 ```bash
-python3 scripts/index_corpus.py <corpus-dir-or-file> --top 200 --json profiles/<name>.index.json
+python3 scripts/index_corpus.py <corpus-dir-or-file> --top 200 --json profiles/<name>/index.json
 ```
 
 Dependency-free (Python 3 stdlib); reads `.txt`/`.md`/`.html`. It computes — exactly, not by estimate — everything countable:
@@ -70,7 +70,7 @@ Dependency-free (Python 3 stdlib); reads `.txt`/`.md`/`.html`. It computes — e
 - **The vocabulary tables (Sections 6.1–6.6):** the **keyness-ranked distinctive lexicon** (use this, NOT raw frequency — see Step 3c), the top function words, the plain-verb signal, ranked hedges and intensifiers, the **synonym-binaries table** computed across all inflections, and **spelling/dialect variants** (till/until, among/amongst, -ize/-ise…).
 - **Candidate pet phrases:** top bigrams and trigrams.
 
-**Transcribe the indexer's numbers verbatim.** Save the JSON next to the profile as `profiles/<name>.index.json` — `functions/use.md`'s checker reads it later. For a corpus the indexer can't reach (pasted samples), fall back to careful manual counting and mark numbers as estimates.
+**Transcribe the indexer's numbers verbatim.** Save the JSON next to the profile as `profiles/<name>/index.json` (same folder) — `functions/use.md`'s checker reads it later. For a corpus the indexer can't reach (pasted samples), fall back to careful manual counting and mark numbers as estimates.
 
 ### Step 3: Read the four layers (the human-judgment work)
 
@@ -100,7 +100,7 @@ The discipline doesn't change — every rule still needs evidence; depth means *
 
 ### Step 5: Save the profile
 
-Default path: `profiles/<name>.md`. If not writeable, fall back to the outputs folder. Show the rules in chat too.
+Default path: `profiles/<name>/profile.md`. If not writeable, fall back to the outputs folder. Show the rules in chat too.
 
 ### Profile template
 

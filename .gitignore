@@ -16,4 +16,4 @@ tmp/
 scripts/__pycache__
 
 profiles/*.bak
-profiles/*.json
+profiles/*/*.json
