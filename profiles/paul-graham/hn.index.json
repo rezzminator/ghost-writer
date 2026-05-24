@@ -1,0 +1,2310 @@
+{
+  "totals": {
+    "words": 397020,
+    "unique_words": 16867,
+    "sentences": 25291,
+    "documents": 1
+  },
+  "distinctive_vocabulary": [
+    [
+      "yc",
+      2020,
+      5087.9,
+      339.2
+    ],
+    [
+      "hn",
+      1651,
+      4158.5,
+      277.2
+    ],
+    [
+      "startups",
+      1406,
+      3541.4,
+      236.1
+    ],
+    [
+      "startup",
+      1347,
+      3392.8,
+      226.2
+    ],
+    [
+      "founders",
+      795,
+      2002.4,
+      133.5
+    ],
+    [
+      "news",
+      703,
+      1770.7,
+      118.0
+    ],
+    [
+      "combinator",
+      675,
+      1700.2,
+      113.3
+    ],
+    [
+      "companies",
+      639,
+      1609.5,
+      107.3
+    ],
+    [
+      "comments",
+      519,
+      1307.2,
+      87.1
+    ],
+    [
+      "pg",
+      518,
+      1304.7,
+      87.0
+    ],
+    [
+      "say",
+      506,
+      1274.5,
+      85.0
+    ],
+    [
+      "investors",
+      465,
+      1171.2,
+      78.1
+    ],
+    [
+      "users",
+      463,
+      1166.2,
+      77.7
+    ],
+    [
+      "google",
+      439,
+      1105.7,
+      73.7
+    ],
+    [
+      "applications",
+      408,
+      1027.7,
+      68.5
+    ],
+    [
+      "comment",
+      401,
+      1010.0,
+      67.3
+    ],
+    [
+      "funding",
+      399,
+      1005.0,
+      67.0
+    ],
+    [
+      "site",
+      385,
+      969.7,
+      64.6
+    ],
+    [
+      "hacker",
+      374,
+      942.0,
+      62.8
+    ],
+    [
+      "yes",
+      369,
+      929.4,
+      62.0
+    ],
+    [
+      "funded",
+      355,
+      894.2,
+      59.6
+    ],
+    [
+      "fund",
+      350,
+      881.6,
+      58.8
+    ],
+    [
+      "two",
+      326,
+      821.1,
+      54.7
+    ],
+    [
+      "anyone",
+      321,
+      808.5,
+      53.9
+    ],
+    [
+      "already",
+      305,
+      768.2,
+      51.2
+    ],
+    [
+      "pretty",
+      295,
+      743.0,
+      49.5
+    ],
+    [
+      "dead",
+      291,
+      733.0,
+      48.9
+    ],
+    [
+      "working",
+      290,
+      730.4,
+      48.7
+    ],
+    [
+      "paul",
+      285,
+      717.8,
+      47.9
+    ],
+    [
+      "years",
+      278,
+      700.2,
+      46.7
+    ],
+    [
+      "vc",
+      277,
+      697.7,
+      46.5
+    ],
+    [
+      "application",
+      277,
+      697.7,
+      46.5
+    ],
+    [
+      "vcs",
+      269,
+      677.5,
+      45.2
+    ],
+    [
+      "page",
+      266,
+      670.0,
+      44.7
+    ],
+    [
+      "valley",
+      264,
+      665.0,
+      44.3
+    ],
+    [
+      "since",
+      257,
+      647.3,
+      43.2
+    ],
+    [
+      "example",
+      251,
+      632.2,
+      42.1
+    ],
+    [
+      "top",
+      248,
+      624.7,
+      41.6
+    ],
+    [
+      "interesting",
+      248,
+      624.7,
+      41.6
+    ],
+    [
+      "code",
+      246,
+      619.6,
+      41.3
+    ],
+    [
+      "web",
+      244,
+      614.6,
+      41.0
+    ],
+    [
+      "please",
+      239,
+      602.0,
+      40.1
+    ],
+    [
+      "maybe",
+      234,
+      589.4,
+      39.3
+    ],
+    [
+      "done",
+      227,
+      571.8,
+      38.1
+    ],
+    [
+      "every",
+      220,
+      554.1,
+      36.9
+    ],
+    [
+      "summer",
+      219,
+      551.6,
+      36.8
+    ],
+    [
+      "graham",
+      219,
+      551.6,
+      36.8
+    ],
+    [
+      "silicon",
+      214,
+      539.0,
+      35.9
+    ],
+    [
+      "post",
+      213,
+      536.5,
+      35.8
+    ],
+    [
+      "list",
+      209,
+      526.4,
+      35.1
+    ],
+    [
+      "apply",
+      208,
+      523.9,
+      34.9
+    ],
+    [
+      "article",
+      204,
+      513.8,
+      34.3
+    ],
+    [
+      "whether",
+      204,
+      513.8,
+      34.3
+    ],
+    [
+      "deal",
+      202,
+      508.8,
+      33.9
+    ],
+    [
+      "using",
+      201,
+      506.3,
+      33.8
+    ],
+    [
+      "software",
+      195,
+      491.2,
+      32.7
+    ],
+    [
+      "trying",
+      189,
+      476.0,
+      31.7
+    ],
+    [
+      "reddit",
+      188,
+      473.5,
+      31.6
+    ],
+    [
+      "founder",
+      185,
+      466.0,
+      31.1
+    ],
+    [
+      "demo",
+      185,
+      466.0,
+      31.1
+    ],
+    [
+      "stories",
+      181,
+      455.9,
+      30.4
+    ],
+    [
+      "hackers",
+      180,
+      453.4,
+      30.2
+    ],
+    [
+      "either",
+      178,
+      448.3,
+      29.9
+    ],
+    [
+      "lisp",
+      178,
+      448.3,
+      29.9
+    ],
+    [
+      "starting",
+      176,
+      443.3,
+      29.6
+    ],
+    [
+      "language",
+      175,
+      440.8,
+      29.4
+    ],
+    [
+      "ago",
+      175,
+      440.8,
+      29.4
+    ],
+    [
+      "link",
+      172,
+      433.2,
+      28.9
+    ],
+    [
+      "arc",
+      168,
+      423.2,
+      28.2
+    ],
+    [
+      "facebook",
+      165,
+      415.6,
+      27.7
+    ],
+    [
+      "batch",
+      164,
+      413.1,
+      27.5
+    ],
+    [
+      "simply",
+      164,
+      413.1,
+      27.5
+    ],
+    [
+      "average",
+      163,
+      410.6,
+      27.4
+    ],
+    [
+      "advice",
+      163,
+      410.6,
+      27.4
+    ],
+    [
+      "successful",
+      163,
+      410.6,
+      27.4
+    ],
+    [
+      "we'd",
+      158,
+      398.0,
+      26.5
+    ],
+    [
+      "jobs",
+      157,
+      395.4,
+      26.4
+    ],
+    [
+      "they'd",
+      157,
+      395.4,
+      26.4
+    ],
+    [
+      "search",
+      154,
+      387.9,
+      25.9
+    ],
+    [
+      "later",
+      154,
+      387.9,
+      25.9
+    ],
+    [
+      "days",
+      152,
+      382.9,
+      25.5
+    ],
+    [
+      "form",
+      148,
+      372.8,
+      24.9
+    ],
+    [
+      "interview",
+      147,
+      370.3,
+      24.7
+    ],
+    [
+      "help",
+      146,
+      367.7,
+      24.5
+    ],
+    [
+      "thinking",
+      146,
+      367.7,
+      24.5
+    ],
+    [
+      "type",
+      145,
+      365.2,
+      24.3
+    ],
+    [
+      "technology",
+      145,
+      365.2,
+      24.3
+    ],
+    [
+      "wrote",
+      145,
+      365.2,
+      24.3
+    ],
+    [
+      "else",
+      144,
+      362.7,
+      24.2
+    ],
+    [
+      "source",
+      144,
+      362.7,
+      24.2
+    ],
+    [
+      "talking",
+      144,
+      362.7,
+      24.2
+    ],
+    [
+      "design",
+      143,
+      360.2,
+      24.0
+    ],
+    [
+      "guys",
+      143,
+      360.2,
+      24.0
+    ],
+    [
+      "invest",
+      143,
+      360.2,
+      24.0
+    ],
+    [
+      "million",
+      143,
+      360.2,
+      24.0
+    ],
+    [
+      "months",
+      143,
+      360.2,
+      24.0
+    ],
+    [
+      "version",
+      141,
+      355.1,
+      23.7
+    ],
+    [
+      "answer",
+      141,
+      355.1,
+      23.7
+    ],
+    [
+      "till",
+      141,
+      355.1,
+      23.7
+    ],
+    [
+      "times",
+      140,
+      352.6,
+      23.5
+    ],
+    [
+      "based",
+      140,
+      352.6,
+      23.5
+    ],
+    [
+      "certainly",
+      139,
+      350.1,
+      23.3
+    ],
+    [
+      "rich",
+      138,
+      347.6,
+      23.2
+    ],
+    [
+      "gets",
+      138,
+      347.6,
+      23.2
+    ],
+    [
+      "difference",
+      137,
+      345.1,
+      23.0
+    ],
+    [
+      "ok",
+      136,
+      342.6,
+      22.8
+    ],
+    [
+      "data",
+      135,
+      340.0,
+      22.7
+    ],
+    [
+      "several",
+      134,
+      337.5,
+      22.5
+    ],
+    [
+      "exactly",
+      134,
+      337.5,
+      22.5
+    ],
+    [
+      "value",
+      134,
+      337.5,
+      22.5
+    ],
+    [
+      "angel",
+      133,
+      335.0,
+      22.3
+    ],
+    [
+      "likely",
+      132,
+      332.5,
+      22.2
+    ],
+    [
+      "once",
+      131,
+      330.0,
+      22.0
+    ],
+    [
+      "karma",
+      131,
+      330.0,
+      22.0
+    ],
+    [
+      "meant",
+      130,
+      327.4,
+      21.8
+    ],
+    [
+      "seen",
+      129,
+      324.9,
+      21.7
+    ],
+    [
+      "future",
+      129,
+      324.9,
+      21.7
+    ],
+    [
+      "wanted",
+      128,
+      322.4,
+      21.5
+    ],
+    [
+      "frontpage",
+      128,
+      322.4,
+      21.5
+    ],
+    [
+      "growth",
+      128,
+      322.4,
+      21.5
+    ]
+  ],
+  "top_content_words": [
+    [
+      "yc",
+      2020
+    ],
+    [
+      "people",
+      1849
+    ],
+    [
+      "hn",
+      1651
+    ],
+    [
+      "ask",
+      1455
+    ],
+    [
+      "startups",
+      1406
+    ],
+    [
+      "like",
+      1354
+    ],
+    [
+      "startup",
+      1347
+    ],
+    [
+      "get",
+      1069
+    ],
+    [
+      "think",
+      1032
+    ],
+    [
+      "make",
+      885
+    ],
+    [
+      "good",
+      845
+    ],
+    [
+      "founders",
+      795
+    ],
+    [
+      "something",
+      783
+    ],
+    [
+      "new",
+      767
+    ],
+    [
+      "time",
+      756
+    ],
+    [
+      "now",
+      753
+    ],
+    [
+      "way",
+      716
+    ],
+    [
+      "know",
+      710
+    ],
+    [
+      "news",
+      703
+    ],
+    [
+      "want",
+      700
+    ],
+    [
+      "things",
+      684
+    ],
+    [
+      "combinator",
+      675
+    ],
+    [
+      "work",
+      668
+    ],
+    [
+      "lot",
+      660
+    ],
+    [
+      "money",
+      646
+    ],
+    [
+      "companies",
+      639
+    ],
+    [
+      "probably",
+      577
+    ],
+    [
+      "company",
+      565
+    ],
+    [
+      "actually",
+      550
+    ],
+    [
+      "thing",
+      527
+    ],
+    [
+      "comments",
+      519
+    ],
+    [
+      "pg",
+      518
+    ],
+    [
+      "say",
+      506
+    ],
+    [
+      "first",
+      497
+    ],
+    [
+      "investors",
+      465
+    ],
+    [
+      "users",
+      463
+    ],
+    [
+      "problem",
+      457
+    ],
+    [
+      "see",
+      442
+    ],
+    [
+      "use",
+      442
+    ],
+    [
+      "better",
+      439
+    ],
+    [
+      "google",
+      439
+    ],
+    [
+      "idea",
+      435
+    ],
+    [
+      "start",
+      434
+    ],
+    [
+      "going",
+      427
+    ],
+    [
+      "big",
+      413
+    ],
+    [
+      "someone",
+      413
+    ],
+    [
+      "applications",
+      408
+    ],
+    [
+      "comment",
+      401
+    ],
+    [
+      "funding",
+      399
+    ],
+    [
+      "day",
+      399
+    ],
+    [
+      "really",
+      396
+    ],
+    [
+      "site",
+      385
+    ],
+    [
+      "hacker",
+      374
+    ],
+    [
+      "yes",
+      369
+    ],
+    [
+      "seems",
+      364
+    ],
+    [
+      "tell",
+      362
+    ],
+    [
+      "seem",
+      361
+    ],
+    [
+      "bad",
+      359
+    ],
+    [
+      "funded",
+      355
+    ],
+    [
+      "fund",
+      350
+    ],
+    [
+      "fact",
+      346
+    ],
+    [
+      "number",
+      346
+    ],
+    [
+      "enough",
+      340
+    ],
+    [
+      "sure",
+      340
+    ],
+    [
+      "hard",
+      340
+    ],
+    [
+      "well",
+      339
+    ],
+    [
+      "reason",
+      330
+    ],
+    [
+      "need",
+      329
+    ],
+    [
+      "two",
+      326
+    ],
+    [
+      "point",
+      322
+    ],
+    [
+      "anyone",
+      321
+    ],
+    [
+      "made",
+      319
+    ],
+    [
+      "case",
+      312
+    ],
+    [
+      "best",
+      309
+    ],
+    [
+      "mean",
+      305
+    ],
+    [
+      "already",
+      305
+    ],
+    [
+      "true",
+      298
+    ],
+    [
+      "take",
+      296
+    ],
+    [
+      "pretty",
+      295
+    ],
+    [
+      "dead",
+      291
+    ],
+    [
+      "working",
+      290
+    ],
+    [
+      "stuff",
+      289
+    ],
+    [
+      "back",
+      287
+    ],
+    [
+      "right",
+      287
+    ],
+    [
+      "used",
+      286
+    ],
+    [
+      "go",
+      285
+    ],
+    [
+      "paul",
+      285
+    ],
+    [
+      "find",
+      281
+    ],
+    [
+      "ideas",
+      279
+    ],
+    [
+      "years",
+      278
+    ],
+    [
+      "vc",
+      277
+    ],
+    [
+      "application",
+      277
+    ],
+    [
+      "always",
+      276
+    ],
+    [
+      "question",
+      273
+    ],
+    [
+      "got",
+      270
+    ],
+    [
+      "vcs",
+      269
+    ],
+    [
+      "page",
+      266
+    ],
+    [
+      "last",
+      265
+    ],
+    [
+      "year",
+      264
+    ],
+    [
+      "valley",
+      264
+    ],
+    [
+      "far",
+      258
+    ],
+    [
+      "since",
+      257
+    ],
+    [
+      "anything",
+      254
+    ],
+    [
+      "business",
+      252
+    ],
+    [
+      "example",
+      251
+    ],
+    [
+      "often",
+      249
+    ],
+    [
+      "top",
+      248
+    ],
+    [
+      "read",
+      248
+    ],
+    [
+      "interesting",
+      248
+    ],
+    [
+      "open",
+      246
+    ],
+    [
+      "code",
+      246
+    ],
+    [
+      "look",
+      245
+    ],
+    [
+      "web",
+      244
+    ],
+    [
+      "said",
+      243
+    ],
+    [
+      "long",
+      243
+    ],
+    [
+      "making",
+      240
+    ],
+    [
+      "please",
+      239
+    ],
+    [
+      "usually",
+      238
+    ],
+    [
+      "try",
+      236
+    ],
+    [
+      "sort",
+      234
+    ],
+    [
+      "maybe",
+      234
+    ],
+    [
+      "done",
+      227
+    ],
+    [
+      "school",
+      226
+    ],
+    [
+      "different",
+      225
+    ],
+    [
+      "small",
+      225
+    ],
+    [
+      "give",
+      220
+    ],
+    [
+      "every",
+      220
+    ],
+    [
+      "summer",
+      219
+    ],
+    [
+      "graham",
+      219
+    ],
+    [
+      "change",
+      217
+    ],
+    [
+      "silicon",
+      214
+    ],
+    [
+      "post",
+      213
+    ],
+    [
+      "means",
+      211
+    ],
+    [
+      "started",
+      211
+    ],
+    [
+      "list",
+      209
+    ],
+    [
+      "apply",
+      208
+    ],
+    [
+      "kind",
+      207
+    ],
+    [
+      "wrong",
+      207
+    ],
+    [
+      "getting",
+      207
+    ],
+    [
+      "article",
+      204
+    ],
+    [
+      "whether",
+      204
+    ],
+    [
+      "makes",
+      203
+    ],
+    [
+      "saying",
+      203
+    ],
+    [
+      "deal",
+      202
+    ],
+    [
+      "using",
+      201
+    ],
+    [
+      "believe",
+      200
+    ],
+    [
+      "write",
+      197
+    ],
+    [
+      "world",
+      195
+    ],
+    [
+      "software",
+      195
+    ],
+    [
+      "early",
+      195
+    ],
+    [
+      "everyone",
+      194
+    ],
+    [
+      "rather",
+      193
+    ],
+    [
+      "end",
+      192
+    ],
+    [
+      "old",
+      192
+    ],
+    [
+      "thought",
+      191
+    ],
+    [
+      "sense",
+      189
+    ],
+    [
+      "trying",
+      189
+    ],
+    [
+      "reddit",
+      188
+    ],
+    [
+      "founder",
+      185
+    ],
+    [
+      "instead",
+      185
+    ],
+    [
+      "demo",
+      185
+    ],
+    [
+      "high",
+      185
+    ],
+    [
+      "person",
+      183
+    ],
+    [
+      "stories",
+      181
+    ],
+    [
+      "hackers",
+      180
+    ],
+    [
+      "either",
+      178
+    ],
+    [
+      "lisp",
+      178
+    ],
+    [
+      "talk",
+      177
+    ],
+    [
+      "stop",
+      177
+    ],
+    [
+      "starting",
+      176
+    ],
+    [
+      "language",
+      175
+    ],
+    [
+      "ago",
+      175
+    ],
+    [
+      "link",
+      172
+    ],
+    [
+      "writing",
+      171
+    ],
+    [
+      "next",
+      169
+    ],
+    [
+      "arc",
+      168
+    ],
+    [
+      "keep",
+      168
+    ],
+    [
+      "feel",
+      168
+    ],
+    [
+      "great",
+      167
+    ],
+    [
+      "story",
+      165
+    ],
+    [
+      "able",
+      165
+    ],
+    [
+      "facebook",
+      165
+    ],
+    [
+      "batch",
+      164
+    ],
+    [
+      "simply",
+      164
+    ],
+    [
+      "average",
+      163
+    ],
+    [
+      "advice",
+      163
+    ],
+    [
+      "successful",
+      163
+    ],
+    [
+      "nothing",
+      162
+    ],
+    [
+      "life",
+      162
+    ],
+    [
+      "we'd",
+      158
+    ],
+    [
+      "jobs",
+      157
+    ],
+    [
+      "they'd",
+      157
+    ],
+    [
+      "market",
+      156
+    ],
+    [
+      "important",
+      155
+    ],
+    [
+      "search",
+      154
+    ],
+    [
+      "come",
+      154
+    ],
+    [
+      "later",
+      154
+    ],
+    [
+      "days",
+      152
+    ],
+    [
+      "almost",
+      152
+    ],
+    [
+      "real",
+      150
+    ]
+  ],
+  "top_function_words": [
+    [
+      "the",
+      16711
+    ],
+    [
+      "to",
+      11981
+    ],
+    [
+      "a",
+      9423
+    ],
+    [
+      "of",
+      8601
+    ],
+    [
+      "that",
+      6499
+    ],
+    [
+      "is",
+      6372
+    ],
+    [
+      "i",
+      5523
+    ],
+    [
+      "in",
+      5408
+    ],
+    [
+      "it",
+      5222
+    ],
+    [
+      "and",
+      4842
+    ],
+    [
+      "you",
+      4625
+    ],
+    [
+      "for",
+      3625
+    ],
+    [
+      "be",
+      3051
+    ],
+    [
+      "have",
+      2866
+    ],
+    [
+      "not",
+      2811
+    ],
+    [
+      "this",
+      2779
+    ],
+    [
+      "but",
+      2748
+    ],
+    [
+      "are",
+      2726
+    ],
+    [
+      "on",
+      2713
+    ],
+    [
+      "we",
+      2651
+    ],
+    [
+      "if",
+      2511
+    ],
+    [
+      "they",
+      2382
+    ],
+    [
+      "as",
+      2224
+    ],
+    [
+      "about",
+      2207
+    ],
+    [
+      "what",
+      2159
+    ],
+    [
+      "was",
+      2142
+    ],
+    [
+      "it's",
+      1845
+    ],
+    [
+      "with",
+      1820
+    ],
+    [
+      "at",
+      1794
+    ],
+    [
+      "do",
+      1713
+    ],
+    [
+      "so",
+      1692
+    ],
+    [
+      "would",
+      1615
+    ],
+    [
+      "one",
+      1564
+    ],
+    [
+      "more",
+      1540
+    ],
+    [
+      "don't",
+      1479
+    ],
+    [
+      "an",
+      1455
+    ],
+    [
+      "by",
+      1429
+    ],
+    [
+      "how",
+      1400
+    ],
+    [
+      "there",
+      1379
+    ],
+    [
+      "or",
+      1346
+    ]
+  ],
+  "top_bigrams": [
+    [
+      "of the",
+      1525
+    ],
+    [
+      "in the",
+      1288
+    ],
+    [
+      "to be",
+      1040
+    ],
+    [
+      "ask hn",
+      799
+    ],
+    [
+      "y combinator",
+      672
+    ],
+    [
+      "a lot",
+      659
+    ],
+    [
+      "if you",
+      647
+    ],
+    [
+      "on the",
+      614
+    ],
+    [
+      "is a",
+      600
+    ],
+    [
+      "have to",
+      554
+    ],
+    [
+      "is that",
+      527
+    ],
+    [
+      "i don't",
+      517
+    ],
+    [
+      "would be",
+      488
+    ],
+    [
+      "to the",
+      487
+    ],
+    [
+      "this is",
+      470
+    ],
+    [
+      "a startup",
+      463
+    ],
+    [
+      "is the",
+      458
+    ],
+    [
+      "i think",
+      438
+    ],
+    [
+      "lot of",
+      421
+    ],
+    [
+      "it was",
+      421
+    ],
+    [
+      "there are",
+      407
+    ],
+    [
+      "want to",
+      407
+    ],
+    [
+      "to do",
+      390
+    ],
+    [
+      "for the",
+      387
+    ],
+    [
+      "is not",
+      380
+    ],
+    [
+      "you can",
+      376
+    ],
+    [
+      "in a",
+      372
+    ],
+    [
+      "the same",
+      370
+    ],
+    [
+      "of a",
+      370
+    ],
+    [
+      "at the",
+      365
+    ],
+    [
+      "to make",
+      363
+    ],
+    [
+      "ask pg",
+      357
+    ],
+    [
+      "it would",
+      350
+    ],
+    [
+      "be a",
+      340
+    ],
+    [
+      "one of",
+      339
+    ],
+    [
+      "to get",
+      331
+    ],
+    [
+      "going to",
+      326
+    ],
+    [
+      "that the",
+      325
+    ],
+    [
+      "how to",
+      319
+    ],
+    [
+      "e g",
+      318
+    ]
+  ],
+  "top_trigrams": [
+    [
+      "a lot of",
+      421
+    ],
+    [
+      "i don't think",
+      195
+    ],
+    [
+      "one of the",
+      194
+    ],
+    [
+      "it would be",
+      163
+    ],
+    [
+      "applications open for",
+      145
+    ],
+    [
+      "you have to",
+      143
+    ],
+    [
+      "to be a",
+      135
+    ],
+    [
+      "i don't know",
+      124
+    ],
+    [
+      "the number of",
+      116
+    ],
+    [
+      "be able to",
+      107
+    ],
+    [
+      "you want to",
+      106
+    ],
+    [
+      "to y combinator",
+      101
+    ],
+    [
+      "have to be",
+      95
+    ],
+    [
+      "ask hn what",
+      89
+    ],
+    [
+      "ask hn how",
+      88
+    ],
+    [
+      "there is a",
+      83
+    ],
+    [
+      "most of the",
+      83
+    ],
+    [
+      "out to be",
+      80
+    ],
+    [
+      "if you want",
+      76
+    ],
+    [
+      "i think the",
+      75
+    ],
+    [
+      "i'm not sure",
+      75
+    ],
+    [
+      "to apply to",
+      72
+    ],
+    [
+      "this is a",
+      71
+    ],
+    [
+      "seems to be",
+      71
+    ],
+    [
+      "this is the",
+      70
+    ],
+    [
+      "apply to y",
+      69
+    ],
+    [
+      "in the sense",
+      68
+    ],
+    [
+      "would be a",
+      67
+    ],
+    [
+      "the fact that",
+      65
+    ],
+    [
+      "seem to be",
+      63
+    ]
+  ],
+  "sentence": {
+    "mean_length": 15.7,
+    "median_length": 13,
+    "burstiness_stdev": 33.46,
+    "min": 1,
+    "max": 5090
+  },
+  "paragraph": {
+    "mean_sentences": 1.66
+  },
+  "punctuation_counts": {
+    "em_dash_char (\u2014)": 8,
+    "double_hyphen (--)": 194,
+    "semicolon (;)": 614,
+    "colon (:)": 3316,
+    "ellipsis (\u2026 or ...)": 167,
+    "exclamation (!)": 152,
+    "question (?)": 3410
+  },
+  "punctuation_per_1000w": {
+    "em_dash_char (\u2014)": 0.02,
+    "double_hyphen (--)": 0.49,
+    "semicolon (;)": 1.55,
+    "colon (:)": 8.35,
+    "ellipsis (\u2026 or ...)": 0.42,
+    "exclamation (!)": 0.38,
+    "question (?)": 8.59
+  },
+  "contractions": {
+    "count": 12710,
+    "per_1000w": 32.01,
+    "nt_vs_not_rate_pct": 59.3
+  },
+  "hedges": {
+    "probably": 521,
+    "i think": 236,
+    "sort of": 205,
+    "kind of": 197,
+    "seems to": 150,
+    "maybe": 147,
+    "likely": 122,
+    "could be": 116,
+    "it seems": 84,
+    "might be": 72,
+    "presumably": 52,
+    "perhaps": 44,
+    "possibly": 30,
+    "arguably": 21,
+    "i suppose": 16,
+    "i'd say": 13,
+    "honestly": 13,
+    "i guess": 2,
+    "to be fair": 2,
+    "potentially": 2,
+    "kinda": 1
+  },
+  "hedge_rate_per_1000w": 5.15,
+  "intensifiers": {
+    "so": 1692,
+    "much": 795,
+    "very": 461,
+    "too": 432,
+    "really": 396,
+    "pretty": 295,
+    "rather": 193,
+    "almost": 152,
+    "quite": 126,
+    "fairly": 81,
+    "especially": 69,
+    "completely": 52,
+    "super": 46,
+    "extremely": 33,
+    "somewhat": 30,
+    "totally": 18,
+    "remarkably": 9,
+    "absolutely": 4,
+    "incredibly": 1,
+    "considerably": 1
+  },
+  "sentence_initial_connectors": [
+    [
+      "the",
+      1805
+    ],
+    [
+      "i",
+      1665
+    ],
+    [
+      "ask",
+      1168
+    ],
+    [
+      "but",
+      825
+    ],
+    [
+      "if",
+      737
+    ],
+    [
+      "it",
+      632
+    ],
+    [
+      "it's",
+      595
+    ],
+    [
+      "we",
+      548
+    ],
+    [
+      "and",
+      442
+    ],
+    [
+      "so",
+      439
+    ],
+    [
+      "what",
+      438
+    ],
+    [
+      "you",
+      396
+    ],
+    [
+      "in",
+      369
+    ],
+    [
+      "how",
+      348
+    ],
+    [
+      "a",
+      320
+    ]
+  ],
+  "synonym_binaries": [
+    {
+      "binary": "use / utilize",
+      "plain": 961,
+      "elevated": 1,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "help / assist",
+      "plain": 211,
+      "elevated": 1,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "but / however",
+      "plain": 2748,
+      "elevated": 41,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "also / additionally / furthermore / moreover",
+      "plain": 430,
+      "elevated": 2,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "make / create / produce / craft",
+      "plain": 1647,
+      "elevated": 225,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "show / demonstrate",
+      "plain": 213,
+      "elevated": 5,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "find / discover",
+      "plain": 421,
+      "elevated": 68,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "big / large",
+      "plain": 547,
+      "elevated": 175,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "probably / perhaps",
+      "plain": 577,
+      "elevated": 65,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "very / quite",
+      "plain": 461,
+      "elevated": 126,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "strange / weird",
+      "plain": 23,
+      "elevated": 35,
+      "writer_picks": "ELEVATED"
+    },
+    {
+      "binary": "get / obtain",
+      "plain": 1720,
+      "elevated": 2,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "about / regarding / concerning",
+      "plain": 2207,
+      "elevated": 4,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "because / due to",
+      "plain": 1258,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "start / commence",
+      "plain": 848,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "buy / purchase",
+      "plain": 209,
+      "elevated": 12,
+      "writer_picks": "plain"
+    }
+  ],
+  "spelling_variants": [
+    {
+      "variant": "till / until",
+      "a": 141,
+      "b": 16,
+      "picks": "till"
+    },
+    {
+      "variant": "toward / towards",
+      "a": 25,
+      "b": 8,
+      "picks": "toward"
+    },
+    {
+      "variant": "among / amongst",
+      "a": 105,
+      "b": 1,
+      "picks": "among"
+    },
+    {
+      "variant": "while / whilst",
+      "a": 227,
+      "b": 0,
+      "picks": "while"
+    },
+    {
+      "variant": "gray / grey",
+      "a": 12,
+      "b": 2,
+      "picks": "gray"
+    },
+    {
+      "variant": "learned / learnt",
+      "a": 92,
+      "b": 4,
+      "picks": "learned"
+    },
+    {
+      "variant": "-ize / -ise",
+      "a": 216,
+      "b": 2,
+      "picks": "-ize"
+    },
+    {
+      "variant": "-or / -our",
+      "a": 117,
+      "b": 4,
+      "picks": "-or"
+    },
+    {
+      "variant": "ok / okay",
+      "a": 136,
+      "b": 4,
+      "picks": "ok"
+    },
+    {
+      "variant": "anyway / anyways",
+      "a": 62,
+      "b": 0,
+      "picks": "anyway"
+    }
+  ],
+  "plain_verb_signal": {
+    "have": 2866,
+    "do": 1713,
+    "ask": 1455,
+    "get": 1069,
+    "think": 1032,
+    "make": 885,
+    "know": 710,
+    "want": 700,
+    "work": 668,
+    "say": 506,
+    "use": 442,
+    "see": 442,
+    "tell": 362,
+    "need": 329,
+    "take": 296,
+    "go": 285,
+    "find": 281,
+    "look": 245,
+    "try": 236,
+    "give": 220,
+    "keep": 168,
+    "help": 146,
+    "put": 144,
+    "let": 125,
+    "show": 111
+  },
+  "type_token_ratio": {
+    "first_500_words": 0.52,
+    "overall": 0.042
+  }
+}

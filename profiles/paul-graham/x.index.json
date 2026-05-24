@@ -1,0 +1,1038 @@
+{
+  "totals": {
+    "words": 1431,
+    "unique_words": 311,
+    "sentences": 87,
+    "documents": 16
+  },
+  "distinctive_vocabulary": [],
+  "top_content_words": [
+    [
+      "spam",
+      15
+    ],
+    [
+      "statusid",
+      15
+    ],
+    [
+      "bad",
+      11
+    ],
+    [
+      "twitter",
+      10
+    ],
+    [
+      "startup",
+      9
+    ],
+    [
+      "detecting",
+      8
+    ],
+    [
+      "programmer",
+      7
+    ],
+    [
+      "engineering",
+      7
+    ],
+    [
+      "people",
+      6
+    ],
+    [
+      "tweet",
+      6
+    ],
+    [
+      "ai",
+      6
+    ],
+    [
+      "solution",
+      6
+    ],
+    [
+      "go",
+      6
+    ],
+    [
+      "disrupting",
+      5
+    ],
+    [
+      "said",
+      5
+    ],
+    [
+      "something",
+      5
+    ],
+    [
+      "good",
+      5
+    ],
+    [
+      "partners",
+      5
+    ],
+    [
+      "version",
+      5
+    ],
+    [
+      "job",
+      5
+    ],
+    [
+      "like",
+      5
+    ],
+    [
+      "email",
+      5
+    ],
+    [
+      "since",
+      5
+    ],
+    [
+      "chrome",
+      5
+    ],
+    [
+      "got",
+      5
+    ],
+    [
+      "used",
+      5
+    ],
+    [
+      "end",
+      5
+    ],
+    [
+      "disaster",
+      5
+    ],
+    [
+      "want",
+      5
+    ],
+    [
+      "sam",
+      5
+    ],
+    [
+      "effect",
+      4
+    ],
+    [
+      "users",
+      4
+    ],
+    [
+      "industries",
+      4
+    ],
+    [
+      "report",
+      4
+    ],
+    [
+      "know",
+      4
+    ],
+    [
+      "better",
+      4
+    ],
+    [
+      "experience",
+      4
+    ],
+    [
+      "help",
+      4
+    ],
+    [
+      "get",
+      4
+    ],
+    [
+      "manager",
+      4
+    ],
+    [
+      "sign",
+      3
+    ],
+    [
+      "brags",
+      3
+    ],
+    [
+      "industry",
+      3
+    ],
+    [
+      "success",
+      3
+    ],
+    [
+      "failure",
+      3
+    ],
+    [
+      "startups",
+      3
+    ],
+    [
+      "depends",
+      3
+    ],
+    [
+      "worry",
+      3
+    ],
+    [
+      "remember",
+      3
+    ],
+    [
+      "lot",
+      3
+    ],
+    [
+      "eager",
+      3
+    ],
+    [
+      "wrong",
+      3
+    ],
+    [
+      "invent",
+      3
+    ],
+    [
+      "things",
+      3
+    ],
+    [
+      "talked",
+      3
+    ],
+    [
+      "guy",
+      3
+    ],
+    [
+      "who'd",
+      3
+    ],
+    [
+      "several",
+      3
+    ],
+    [
+      "genuinely",
+      3
+    ],
+    [
+      "ideas",
+      3
+    ],
+    [
+      "worked",
+      3
+    ],
+    [
+      "neither",
+      3
+    ],
+    [
+      "twitter's",
+      3
+    ],
+    [
+      "new",
+      3
+    ],
+    [
+      "usage",
+      3
+    ],
+    [
+      "flow",
+      3
+    ],
+    [
+      "either",
+      3
+    ],
+    [
+      "terribly",
+      3
+    ],
+    [
+      "makes",
+      3
+    ],
+    [
+      "going",
+      3
+    ],
+    [
+      "catching",
+      3
+    ],
+    [
+      "giving",
+      3
+    ],
+    [
+      "click",
+      3
+    ],
+    [
+      "way",
+      3
+    ],
+    [
+      "person",
+      3
+    ],
+    [
+      "known",
+      3
+    ],
+    [
+      "ten",
+      3
+    ],
+    [
+      "years",
+      3
+    ],
+    [
+      "consider",
+      3
+    ],
+    [
+      "trustworthy",
+      3
+    ],
+    [
+      "convinced",
+      3
+    ],
+    [
+      "cryptocurrency",
+      3
+    ],
+    [
+      "economy",
+      3
+    ],
+    [
+      "exact",
+      3
+    ],
+    [
+      "opposite",
+      3
+    ],
+    [
+      "search",
+      3
+    ],
+    [
+      "problem",
+      3
+    ],
+    [
+      "far",
+      3
+    ],
+    [
+      "problems",
+      3
+    ],
+    [
+      "settings",
+      3
+    ],
+    [
+      "adprivacy",
+      3
+    ],
+    [
+      "turn",
+      3
+    ],
+    [
+      "spyware",
+      3
+    ],
+    [
+      "inserted",
+      3
+    ],
+    [
+      "latest",
+      3
+    ],
+    [
+      "someone",
+      3
+    ],
+    [
+      "sent",
+      3
+    ],
+    [
+      "cold",
+      3
+    ],
+    [
+      "proposing",
+      3
+    ],
+    [
+      "novel",
+      3
+    ]
+  ],
+  "top_function_words": [
+    [
+      "a",
+      57
+    ],
+    [
+      "the",
+      44
+    ],
+    [
+      "to",
+      44
+    ],
+    [
+      "i",
+      36
+    ],
+    [
+      "of",
+      30
+    ],
+    [
+      "that",
+      28
+    ],
+    [
+      "if",
+      21
+    ],
+    [
+      "you",
+      20
+    ],
+    [
+      "it",
+      19
+    ],
+    [
+      "in",
+      18
+    ],
+    [
+      "it's",
+      16
+    ],
+    [
+      "be",
+      15
+    ],
+    [
+      "on",
+      13
+    ],
+    [
+      "at",
+      13
+    ],
+    [
+      "had",
+      12
+    ],
+    [
+      "he",
+      12
+    ],
+    [
+      "more",
+      12
+    ],
+    [
+      "would",
+      12
+    ],
+    [
+      "or",
+      11
+    ],
+    [
+      "they",
+      11
+    ],
+    [
+      "is",
+      11
+    ],
+    [
+      "was",
+      11
+    ],
+    [
+      "because",
+      10
+    ],
+    [
+      "have",
+      9
+    ],
+    [
+      "for",
+      9
+    ],
+    [
+      "me",
+      9
+    ],
+    [
+      "who",
+      9
+    ],
+    [
+      "about",
+      9
+    ],
+    [
+      "and",
+      8
+    ],
+    [
+      "him",
+      8
+    ],
+    [
+      "so",
+      7
+    ],
+    [
+      "my",
+      7
+    ],
+    [
+      "even",
+      7
+    ],
+    [
+      "will",
+      6
+    ],
+    [
+      "them",
+      6
+    ],
+    [
+      "there's",
+      6
+    ],
+    [
+      "than",
+      6
+    ],
+    [
+      "should",
+      6
+    ],
+    [
+      "we",
+      6
+    ],
+    [
+      "when",
+      5
+    ]
+  ],
+  "top_bigrams": [
+    [
+      "it would",
+      10
+    ],
+    [
+      "detecting spam",
+      8
+    ],
+    [
+      "to be",
+      7
+    ],
+    [
+      "a bad",
+      6
+    ],
+    [
+      "of a",
+      6
+    ],
+    [
+      "if you",
+      6
+    ],
+    [
+      "he was",
+      5
+    ],
+    [
+      "at least",
+      5
+    ],
+    [
+      "if he",
+      5
+    ],
+    [
+      "would end",
+      5
+    ],
+    [
+      "end in",
+      5
+    ],
+    [
+      "in disaster",
+      5
+    ],
+    [
+      "want to",
+      5
+    ],
+    [
+      "on the",
+      4
+    ],
+    [
+      "the effect",
+      4
+    ],
+    [
+      "effect they",
+      4
+    ],
+    [
+      "they have",
+      4
+    ],
+    [
+      "have on",
+      4
+    ],
+    [
+      "a programmer",
+      4
+    ],
+    [
+      "and that",
+      4
+    ],
+    [
+      "you get",
+      4
+    ],
+    [
+      "would be",
+      4
+    ],
+    [
+      "engineering manager",
+      4
+    ],
+    [
+      "be a",
+      4
+    ],
+    [
+      "it's a",
+      3
+    ],
+    [
+      "bad sign",
+      3
+    ],
+    [
+      "sign when",
+      3
+    ],
+    [
+      "when a",
+      3
+    ],
+    [
+      "a startup",
+      3
+    ],
+    [
+      "startup brags",
+      3
+    ],
+    [
+      "brags that",
+      3
+    ],
+    [
+      "that it's",
+      3
+    ],
+    [
+      "it's disrupting",
+      3
+    ],
+    [
+      "disrupting some",
+      3
+    ],
+    [
+      "some industry",
+      3
+    ],
+    [
+      "industry the",
+      3
+    ],
+    [
+      "the success",
+      3
+    ],
+    [
+      "success or",
+      3
+    ],
+    [
+      "or failure",
+      3
+    ],
+    [
+      "failure of",
+      3
+    ]
+  ],
+  "top_trigrams": [
+    [
+      "it would end",
+      5
+    ],
+    [
+      "would end in",
+      5
+    ],
+    [
+      "end in disaster",
+      5
+    ],
+    [
+      "the effect they",
+      4
+    ],
+    [
+      "effect they have",
+      4
+    ],
+    [
+      "they have on",
+      4
+    ],
+    [
+      "to be a",
+      4
+    ],
+    [
+      "it's a bad",
+      3
+    ],
+    [
+      "a bad sign",
+      3
+    ],
+    [
+      "bad sign when",
+      3
+    ],
+    [
+      "sign when a",
+      3
+    ],
+    [
+      "when a startup",
+      3
+    ],
+    [
+      "a startup brags",
+      3
+    ],
+    [
+      "startup brags that",
+      3
+    ],
+    [
+      "brags that it's",
+      3
+    ],
+    [
+      "that it's disrupting",
+      3
+    ],
+    [
+      "it's disrupting some",
+      3
+    ],
+    [
+      "disrupting some industry",
+      3
+    ],
+    [
+      "some industry the",
+      3
+    ],
+    [
+      "industry the success",
+      3
+    ],
+    [
+      "the success or",
+      3
+    ],
+    [
+      "success or failure",
+      3
+    ],
+    [
+      "or failure of",
+      3
+    ],
+    [
+      "failure of startups",
+      3
+    ],
+    [
+      "of startups depends",
+      3
+    ],
+    [
+      "startups depends on",
+      3
+    ],
+    [
+      "don't worry people",
+      3
+    ],
+    [
+      "worry people will",
+      3
+    ],
+    [
+      "people will remember",
+      3
+    ],
+    [
+      "will remember there",
+      3
+    ]
+  ],
+  "sentence": {
+    "mean_length": 16.45,
+    "median_length": 14,
+    "burstiness_stdev": 11.98,
+    "min": 1,
+    "max": 62
+  },
+  "paragraph": {
+    "mean_sentences": 1.76
+  },
+  "punctuation_counts": {
+    "em_dash_char (\u2014)": 0,
+    "double_hyphen (--)": 15,
+    "semicolon (;)": 0,
+    "colon (:)": 24,
+    "ellipsis (\u2026 or ...)": 0,
+    "exclamation (!)": 0,
+    "question (?)": 5
+  },
+  "punctuation_per_1000w": {
+    "em_dash_char (\u2014)": 0.0,
+    "double_hyphen (--)": 10.48,
+    "semicolon (;)": 0.0,
+    "colon (:)": 16.77,
+    "ellipsis (\u2026 or ...)": 0.0,
+    "exclamation (!)": 0.0,
+    "question (?)": 3.49
+  },
+  "contractions": {
+    "count": 48,
+    "per_1000w": 33.54,
+    "nt_vs_not_rate_pct": 75.0
+  },
+  "hedges": {
+    "sort of": 3,
+    "maybe": 2,
+    "honestly": 2
+  },
+  "hedge_rate_per_1000w": 4.89,
+  "intensifiers": {
+    "so": 7,
+    "really": 2
+  },
+  "sentence_initial_connectors": [
+    [
+      "statusid",
+      13
+    ],
+    [
+      "i",
+      11
+    ],
+    [
+      "it's",
+      9
+    ],
+    [
+      "it",
+      4
+    ],
+    [
+      "the",
+      3
+    ],
+    [
+      "there",
+      3
+    ],
+    [
+      "none",
+      3
+    ],
+    [
+      "why",
+      3
+    ],
+    [
+      "because",
+      3
+    ],
+    [
+      "then",
+      3
+    ],
+    [
+      "even",
+      3
+    ],
+    [
+      "disrupting",
+      2
+    ],
+    [
+      "they",
+      2
+    ],
+    [
+      "so",
+      2
+    ],
+    [
+      "type",
+      2
+    ]
+  ],
+  "synonym_binaries": [
+    {
+      "binary": "use / utilize",
+      "plain": 5,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "help / assist",
+      "plain": 4,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "but / however",
+      "plain": 4,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "make / create / produce / craft",
+      "plain": 3,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "get / obtain",
+      "plain": 9,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "about / regarding / concerning",
+      "plain": 9,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "because / due to",
+      "plain": 10,
+      "elevated": 0,
+      "writer_picks": "plain"
+    },
+    {
+      "binary": "start / commence",
+      "plain": 3,
+      "elevated": 0,
+      "writer_picks": "plain"
+    }
+  ],
+  "spelling_variants": [
+    {
+      "variant": "-or / -our",
+      "a": 3,
+      "b": 0,
+      "picks": "-or"
+    }
+  ],
+  "plain_verb_signal": {
+    "have": 9,
+    "go": 6,
+    "do": 5,
+    "want": 5,
+    "get": 4,
+    "know": 4,
+    "help": 4,
+    "work": 3,
+    "take": 2,
+    "think": 2,
+    "put": 2,
+    "keep": 2
+  },
+  "type_token_ratio": {
+    "first_500_words": 0.422,
+    "overall": 0.217
+  }
+}
