@@ -7,8 +7,9 @@ self-review: instead of asking the model to notice its own leaks, count them.
 Two layers of checks:
 
   1. Universal `human` base layer (always runs, no profile needed). Catches the
-     LLM tells every profile inherits: the literal `--` double-hyphen, AI
-     vocabulary (delve/utilize/leverage/...), banned transitions
+     LLM tells every profile inherits: the em-dash `—` and the literal `--`
+     double-hyphen (both banned in all output), AI vocabulary
+     (delve/utilize/leverage/...), banned transitions
      (moreover/furthermore/additionally), chatbot closers, sycophancy,
      negation-parallelism, and low burstiness (uniform sentence lengths).
 
@@ -137,10 +138,17 @@ class Report:
 def universal_checks(text, m, rep):
     low = " " + text.lower() + " "
 
-    # 1. Literal -- double-hyphen: never allowed, any profile.
+    # 1. Em-dash —: banned in all output, any profile.
+    if m["em_dash_char"]:
+        rep.fail(f"Em-dash `—` appears {m['em_dash_char']}x. "
+                 f"Banned in all output — recast with commas, periods, or parentheses.")
+    else:
+        rep.ok("No em-dash `—`.")
+
+    # 1b. Literal -- double-hyphen: banned in all output, any profile.
     if m["double_hyphen"]:
-        rep.fail(f"Literal `--` double-hyphen appears {m['double_hyphen']}x. "
-                 f"Never acceptable — render `—` at the writer's rate, or rephrase.")
+        rep.fail(f"Literal `--` appears {m['double_hyphen']}x. "
+                 f"Banned — recast with commas, periods, or parentheses.")
     else:
         rep.ok("No literal `--` double-hyphen.")
 
@@ -191,15 +199,6 @@ def universal_checks(text, m, rep):
 
 def profile_stats_checks(m, stats, rep):
     """Compare against an index_corpus.py JSON (the clean path)."""
-    # Em-dash ceiling
-    target_em = None
-    try:
-        target_em = stats["punctuation_per_1000w"].get("em_dash_char (—)")
-    except Exception:
-        pass
-    if target_em is not None and m["em_dash_per_1000"] > max(target_em * 1.5, target_em + 1):
-        rep.warn(f"Em-dash rate {m['em_dash_per_1000']}/1000w exceeds profile ceiling "
-                 f"~{target_em}/1000w. Cut down.")
     # Burstiness vs profile
     try:
         pb = stats["sentence"]["burstiness_stdev"]

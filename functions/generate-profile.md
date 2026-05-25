@@ -14,11 +14,11 @@ These govern everything below. (The router carries the short version; this is th
 
 ### The corpus is the source of truth
 
-Every rule must be grounded in evidence. Attach a short quoted example AND a frequency to each rule — not "uses em-dashes" but "em-dash ~3 per 1000 words; e.g., 'and then — without warning — it stopped'". If you can't find a quote that demonstrates the rule, the rule isn't really there. Drop it. **Under-claiming beats over-claiming.** The alternative — a confident-sounding profile of generic "good writing" rules — makes generated text sound like default-Claude prose with a costume on, not the actual person.
+Every rule must be grounded in evidence. Attach a short quoted example AND a frequency to each rule — not "uses semicolons" but "semicolons ~4 per 1000 words; e.g., 'it shipped; nobody noticed'". If you can't find a quote that demonstrates the rule, the rule isn't really there. Drop it. **Under-claiming beats over-claiming.** The alternative — a confident-sounding profile of generic "good writing" rules — makes generated text sound like default-Claude prose with a costume on, not the actual person.
 
 ### Density, not presence
 
-For every recurring quirk, capture **the rate**. "Em-dashes ~3/1000w", not "uses em-dashes". The indexer computes these; transcribe them. A documented rate is also a *ceiling* for generation — see `functions/write.md`.
+For every recurring quirk, capture **the rate**. "Semicolons ~4/1000w", not "uses semicolons". The indexer computes these; transcribe them. A documented rate is also a *ceiling* for generation — see `functions/write.md`.
 
 ### VOICE vs PLATFORM vs BORDERLINE
 
@@ -116,7 +116,7 @@ Profile created: <YYYY-MM-DD>. Last audit: —.
 - **Banned words:** "<word>" (0 occurrences in <N> words; the writer uses "<alternative>" instead)
 - **Banned phrases:** "<phrase>"
 - **Banned constructions:** <pattern, e.g., "rule-of-three lists with parallel structure">
-- **Rendering tell, never allowed:** the literal `--` double-hyphen (render `—` only, at the §5 ceiling).
+- **Rendering tell, never allowed:** the em-dash `—` and the literal `--` — both banned in output; recast with commas, periods, or parentheses. (Inherited from `human`; not overridable by corpus rate.)
 Source: explicit absences in the corpus + LLM-ism patterns from `llm-isms.md` confirmed absent.
 
 ## 2. Anti-performative rules
@@ -158,7 +158,7 @@ Source: explicit absences in the corpus + LLM-ism patterns from `llm-isms.md` co
 ## 5. Quantitative layer (computed by index_corpus.py — transcribe verbatim)
 - Avg sentence length: <N>w; **burstiness (σ): <N>**
 - Avg paragraph length: <N> sentences; Type-token ratio (first 500w): <N>
-- Em-dash `—`/1000w: <N>; literal `--`/1000w: <N> (render only `—`); semicolons: <N>; colons: <N>; ellipses: <N>
+- Em-dash `—`/1000w: <N> (measured; banned in output); literal `--`/1000w: <N> (banned); semicolons: <N>; colons: <N>; ellipses: <N>
 - Contraction rate: <N>/1000w; Hedge rate: <N>/1000w; Exclamation: <N>/1000w; Question: <N>/1000w
 - Top sentence-initial connectors: "<x>" (Nx), …
 

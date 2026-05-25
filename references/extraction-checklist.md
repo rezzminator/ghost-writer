@@ -51,7 +51,7 @@ The numbers it produces (the diagnostic baseline for Mode C audit — drift show
 - **Average sentence length** (words/sentence) and **standard deviation (= burstiness)**
 - **Average paragraph length** in sentences
 - **Type-token ratio** (first 500 words) — vocabulary diversity
-- **Em-dash `—`, double-hyphen `--`, semicolon, colon, ellipsis rates per 1000 words** (the `—`/`--` split matters: a profile that counts only `—` undercounts dash usage and the model then leaks `--`)
+- **Em-dash `—`, double-hyphen `--`, semicolon, colon, ellipsis rates per 1000 words** (the `—`/`--` split matters: a profile that counts only `—` undercounts dash usage and the model then leaks `--`). Measure both, but note: the em-dash and `--` are banned at generation regardless of the measured rate — the count is corpus data, not a license to reproduce.
 - **Contraction rate**
 - **Hedge-word rate** per 1000 words, with the specific hedges ranked
 - **Top sentence-initial connectors** with counts

@@ -33,8 +33,8 @@ The caller relays the final draft; it does not write or review itself. If you ar
 When the two layers seem to conflict:
 
 - **The `human` ban list is the default for anything the person profile doesn't document.** Silence in a person profile means "inherit the human ban", not "anything goes".
-- **A person profile overrides a `human` ban only with documented evidence, and only at the documented density.** PG's em-dash at ~1.0/1000w means a 500-word piece gets *zero or one* — a documented rate is a ceiling, not a license to sprinkle.
-- **Rendering tells are never overridable:** the literal `--`, emoji section markers, "I hope this helps" closers, "great question" sycophancy. Banned for every profile, full stop. If a writer uses em-dashes, render `—`, never `--`.
+- **A person profile overrides a `human` ban only with documented evidence, and only at the documented density.** A writer's documented semicolon rate at ~4/1000w means a 500-word piece gets *one or two*, not a sprinkle — a documented rate is a ceiling, not a license.
+- **Rendering tells are never overridable:** the em-dash `—` and the literal `--`, emoji section markers, "I hope this helps" closers, "great question" sycophancy. Banned for every profile, full stop. Em-dashes are banned outright for every profile — recast with commas, periods, or parentheses; never produce `—` or `--`, even if the writer uses them.
 
 So Pass 1 of the self-review runs for **every** profile, every time. A person profile changes what's permitted and at what density; it never turns the scan off.
 
@@ -90,9 +90,9 @@ Three failure modes; a single pass catches one and misses the others.
 python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>/index.json
 ```
 
-It exit-codes 1 on hard fails (`--`, chatbot closers, sycophancy) and warns on AI vocabulary, banned transitions, negation-parallelism, low burstiness, em-dash over ceiling, and synonym-binary inversions. Fix every FAIL and review every WARN against the profile. Then do the human read for what the script can't judge (subtle phrasing, tone). No file access? Skim against `references/llm-isms.md` — cues: em-dashes, "moreover/furthermore/actually", neat tricolons, balanced paragraph lengths, "it's not just X, it's Y", "navigate the complexities", "in today's fast-paced world", chatbot closers, sycophancy.
+It exit-codes 1 on hard fails (`—`, `--`, chatbot closers, sycophancy — the em-dash and double-hyphen are now hard fails, not warnings) and warns on AI vocabulary, banned transitions, negation-parallelism, low burstiness, and synonym-binary inversions. Fix every FAIL and review every WARN against the profile. Then do the human read for what the script can't judge (subtle phrasing, tone). No file access? Skim against `references/llm-isms.md` — cues: em-dashes, "moreover/furthermore/actually", neat tricolons, balanced paragraph lengths, "it's not just X, it's Y", "navigate the complexities", "in today's fast-paced world", chatbot closers, sycophancy.
 
-For each catalog match, in order: (1) Is it a rendering tell never allowed (`--`, emoji markers, closers, sycophancy)? Delete regardless of profile. (2) Does the person profile document this pattern with a density? If not, the `human` ban applies — revise. (3) If documented, is the draft within the ceiling? Allowed-at-1.0/1000w is not the same as allowed; cut to rate. The most common failure: the model reads a low documented rate as "allowed" and sprinkles well above it.
+For each catalog match, in order: (1) Is it a rendering tell never allowed (`—`, `--`, emoji markers, closers, sycophancy)? Delete regardless of profile. (2) Does the person profile document this pattern with a density? If not, the `human` ban applies — revise. (3) If documented, is the draft within the ceiling? Allowed-at-1.0/1000w is not the same as allowed; cut to rate. The most common failure: the model reads a low documented rate as "allowed" and sprinkles well above it.
 
 **Pass 2 — Performative scan.** Every place the draft has a "signature move" applied loudly: check Section 2. Is the move actually high-density in the corpus, or did you crank a one-time tic into a catchphrase? Smell test: would the writer's friend roll their eyes?
 

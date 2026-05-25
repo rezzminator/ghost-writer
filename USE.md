@@ -68,7 +68,7 @@ Using profiles/<name>/profile.md, write <the thing you want> in <name>'s voice.
 
 The skill reads the profile top-down (bans first, then cognitive moves, then rhetorical structure, then vocabulary), drafts, runs a three-pass self-review — including `scripts/check_output.py` against the profile's index JSON — then hands the draft to a fresh `review` agent that checks it against the profile and sends back any corrections, looping until it passes. The output ends with a short "Rules applied" note so you can see which patterns it leaned on.
 
-Key idea: **every profile inherits the `human` base layer.** Generating as a specific person still strips AI tells — the person's fingerprint sits on top of humanized prose, never on top of default-Claude prose. A documented density (e.g. "em-dash ~1/1000w") is a *ceiling*, not a license, and the literal `--` is never produced.
+Key idea: **every profile inherits the `human` base layer.** Generating as a specific person still strips AI tells — the person's fingerprint sits on top of humanized prose, never on top of default-Claude prose. Em-dashes (`—`) and the literal `--` are banned outright in every profile — recast with commas, periods, or parentheses.
 
 If you don't name a profile, the skill defaults to `human` — generic-but-human writing with the AI tells removed.
 
@@ -80,7 +80,7 @@ If you don't name a profile, the skill defaults to `human` — generic-but-human
 Humanize this text with the human profile: <paste text>
 ```
 
-Uses `profiles/human/profile.md` (the negative profile) to rewrite the text — removing the 29 LLM-isms, the default reasoning shapes, and the literal `--` — without imposing any specific person's voice. To humanize *and* match a person, name their profile instead.
+Uses `profiles/human/profile.md` (the negative profile) to rewrite the text — removing the 29 LLM-isms, the default reasoning shapes, and em-dashes (`—` and `--`) — without imposing any specific person's voice. To humanize *and* match a person, name their profile instead.
 
 ---
 
@@ -92,7 +92,7 @@ You can run the checker directly on any draft:
 python3 scripts/check_output.py draft.txt --profile-stats profiles/<name>/index.json
 ```
 
-It exits non-zero on hard fails (literal `--`, chatbot closers, sycophancy) and warns on AI vocabulary, low burstiness, em-dash-over-ceiling, and synonym-binary inversions. Useful as a git pre-commit gate or a quick check on anything — even text the skill didn't write.
+It exits non-zero on hard fails (em-dashes `—`/`--`, chatbot closers, sycophancy) and warns on AI vocabulary, low burstiness, and synonym-binary inversions. Useful as a git pre-commit gate or a quick check on anything — even text the skill didn't write.
 
 ---
 
