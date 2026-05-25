@@ -1,6 +1,6 @@
 # Ghostwriter
 
-**Version:** 1.2.0 · **License:** MIT · **Repo:** [github.com/mreza0100/ghost-writer](https://github.com/mreza0100/ghost-writer)
+**Version:** 1.3.0 · **License:** MIT · **Repo:** [github.com/mreza0100/ghost-writer](https://github.com/mreza0100/ghost-writer)
 
 A Claude Code skill that captures how someone writes — across four layers: the mechanical fingerprint (sentence rhythm, punctuation density, formatting quirks), the cognitive moves (how they frame problems, what they refuse, where they concretize, how they shape conclusions), the rhetorical structure (the essay-scale shape: opening pattern, full argument arc, scale-shifts, example-texture mix, reference horizon, self-reference patterns, term-coining, aphorism placement), and the vocabulary fingerprint (the specific words they reach for when alternatives exist) — from a corpus of their writing, and generates new text that reproduces all four layers.
 
@@ -154,13 +154,14 @@ Then use it in Claude Code by asking naturally ("build a voice profile from thes
 `SKILL.md` is a thin **router** (~70 lines) that loads on every trigger. It carries the cross-cutting principles and dispatches to one of two workflow files based on the task:
 
 - **`functions/generate-profile.md`** — extract / calibrate / audit / update a profile (Modes A / A.5 / C / D). Long and detailed, but only loads when you're building a profile (a once-per-writer task).
-- **`functions/use.md`** — generate text in a profiled voice, or humanize AI text (Mode B). Loads when you're writing.
+- **`functions/write.md`** — generate text in a profiled voice, or humanize AI text (Mode B). Loads when you're writing.
+- **`functions/review.md`** — fresh-eyes check of a draft against its profile (PASS or specific corrections). The writer loops on it until the draft passes.
 
 This progressive-disclosure split keeps the always-loaded cost low while letting the workflows be as detailed as they need to be.
 
 ### As a standalone reference
 
-The files work as a methodology guide even without Claude Code. `SKILL.md` routes; `functions/` holds the two workflows; `references/` holds the per-layer methodology; `scripts/` holds the indexer and verifier; `USE.md` is a human-facing quick-start.
+The files work as a methodology guide even without Claude Code. `SKILL.md` routes; `functions/` holds the workflows and the review gate; `references/` holds the per-layer methodology; `scripts/` holds the indexer and verifier; `USE.md` is a human-facing quick-start.
 
 ## Key design decisions
 
@@ -170,7 +171,7 @@ The files work as a methodology guide even without Claude Code. `SKILL.md` route
 
 **Banned words go first; macro shape comes before words.** Position in the profile matters. Constraints encountered early have stronger influence on generation. The never-say list sits at the top. Cognitive moves come next because they shape what gets assembled. Rhetorical structure comes after, because the piece's macro shape gets planned before any sentence is written. Then quantitative numbers and vocabulary fingerprint feed the drafting itself.
 
-**Three-pass self-review.** Pass 1 scans for LLM-isms (the 29-pattern catalog). Pass 2 scans for performative exaggeration. Pass 3 reads the draft along three sub-checks: the _thinking_ (did the writer's cognitive moves apply), the _shape_ (did the opening, arc, example-mix, term-coining match the writer's), and the _words_ (did the synonym binaries get respected; did the writer's hedges and intensifiers show up rather than Claude defaults). These are different failure modes — a single pass catches one and misses the others.
+**Three-pass self-review.** Pass 1 scans for LLM-isms (the 29-pattern catalog). Pass 2 scans for performative exaggeration. Pass 3 reads the draft along three sub-checks: the _thinking_ (did the writer's cognitive moves apply), the _shape_ (did the opening, arc, example-mix, term-coining match the writer's), and the _words_ (did the synonym binaries get respected; did the writer's hedges and intensifiers show up rather than Claude defaults). These are different failure modes — a single pass catches one and misses the others. On top of the writer's own three passes, an independent `review` agent re-checks the finished draft against the profile — fresh eyes catch leaks the author is blind to, and the writer loops on its corrections until it passes.
 
 **VOICE vs PLATFORM classification.** Without this, a profile built from Slack messages will produce Slack-style text in every format. The classification prevents platform conventions from being encoded as personal voice.
 
@@ -183,7 +184,8 @@ The files work as a methodology guide even without Claude Code. `SKILL.md` route
 ```
 SKILL.md                             — Router (~70 lines): cross-cutting principles + dispatch to a function
 functions/generate-profile.md        — Workflow: extract / calibrate / audit / update a profile (Modes A/A.5/C/D) + the profile template
-functions/use.md                     — Workflow: generate text in a voice / humanize AI text (Mode B)
+functions/write.md                   — Workflow: generate text in a voice / humanize AI text (Mode B)
+functions/review.md                  — Gate: independent fresh-eyes review of a draft against its profile (PASS / corrections loop)
 USE.md                               — Human-facing quick-start guide
 scripts/index_corpus.py              — Corpus indexer (extraction): exact word frequencies, keyness-ranked distinctive lexicon, function-word table, synonym binaries, spelling variants, punctuation rates, burstiness (stdlib only)
 scripts/check_output.py              — Output verifier (generation): checks a draft for `--`, AI vocabulary, chatbot closers, low burstiness, em-dash-over-ceiling, synonym-binary inversions; exit-codes on hard fails (stdlib only)

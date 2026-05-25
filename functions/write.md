@@ -1,4 +1,4 @@
-# Function: Use a profile (generate / humanize)
+# Function: Write with a profile (generate / humanize)
 
 Loaded by `SKILL.md` when the task is **producing text** — writing something new in a profiled voice, or humanizing AI-sounding text. For *building or maintaining* a profile, see `functions/generate-profile.md`.
 
@@ -10,6 +10,19 @@ Mode B covers two operations on the same machinery:
 - **Humanize** — input is existing AI-sounding text; rewrite it through the profile (typically `human`) to strip LLM-tells.
 
 The only difference is whether you start from a prompt or from an existing draft to revise.
+
+---
+
+## Write in a fresh agent, then gate on an independent review
+
+The caller never drafts inline — accumulated context dilutes the profile. The flow is orchestrated by the caller, one agent-spawn deep:
+
+1. **Spawn the writer.** A general-purpose agent, briefed to **read in full first** — this file, the chosen `profiles/<name>/profile.md` and its `index.json`, `profiles/human/profile.md`, and the `references/*.md` it needs — then run the steps below and return the draft plus the Rules-applied note.
+2. **Spawn a fresh reviewer.** A general-purpose agent given `functions/review.md` and the draft. It returns `PASS` or `NEEDS CORRECTION` plus specific remarks. Fresh eyes are the point — the writer is blind to its own profile drift.
+3. **Fix and re-review.** On `NEEDS CORRECTION`, hand the remarks back to the writer (continue the *same* writer so it keeps the profile loaded) to revise, then re-run the reviewer on the new draft.
+4. **Stop at PASS, or after three review rounds.** If it still fails at the cap, deliver the best draft and surface the outstanding remarks — never loop forever, never hide a failure.
+
+The caller relays the final draft; it does not write or review itself. If you are the writer agent, start at *Choosing a profile*. If you are the reviewer, follow `functions/review.md`.
 
 ---
 
@@ -48,7 +61,9 @@ So Pass 1 of the self-review runs for **every** profile, every time. A person pr
 4. **Check the priority hierarchy** (below) — context conventions can override the profile.
 5. **Draft (or rewrite).** Reproduce profile rules at documented densities. Match densities; don't crank. For `human` especially, vary sentence length aggressively — burstiness σ ≥ 7 is the single most important target.
 6. **Run the three-pass self-review** before delivering.
-7. **Append the Rules-applied note.**
+7. **Append the Rules-applied note**, then return the draft for the review gate above.
+
+**On a revision pass** (the caller returns with review remarks): address each remark specifically, re-run the affected self-review pass, update the Rules-applied note, and return the revised draft — don't re-draft from scratch.
 
 ---
 

@@ -1,6 +1,6 @@
 # Function: Generate / maintain a profile
 
-Loaded by `SKILL.md` when the task is **authoring or maintaining** a profile — extracting a new one (Mode A), calibrating it (A.5), auditing it for drift (C), or updating it (D). For *using* a profile to write, see `functions/use.md` instead.
+Loaded by `SKILL.md` when the task is **authoring or maintaining** a profile — extracting a new one (Mode A), calibrating it (A.5), auditing it for drift (C), or updating it (D). For *using* a profile to write, see `functions/write.md` instead.
 
 This file is long on purpose. Extraction happens once per writer (and occasionally for maintenance), so depth here costs nothing on the frequent path. Read it fully before extracting a non-trivial profile.
 
@@ -18,7 +18,7 @@ Every rule must be grounded in evidence. Attach a short quoted example AND a fre
 
 ### Density, not presence
 
-For every recurring quirk, capture **the rate**. "Em-dashes ~3/1000w", not "uses em-dashes". The indexer computes these; transcribe them. A documented rate is also a *ceiling* for generation — see `functions/use.md`.
+For every recurring quirk, capture **the rate**. "Em-dashes ~3/1000w", not "uses em-dashes". The indexer computes these; transcribe them. A documented rate is also a *ceiling* for generation — see `functions/write.md`.
 
 ### VOICE vs PLATFORM vs BORDERLINE
 
@@ -70,7 +70,7 @@ Dependency-free (Python 3 stdlib); reads `.txt`/`.md`/`.html`. It computes — e
 - **The vocabulary tables (Sections 6.1–6.6):** the **keyness-ranked distinctive lexicon** (use this, NOT raw frequency — see Step 3c), the top function words, the plain-verb signal, ranked hedges and intensifiers, the **synonym-binaries table** computed across all inflections, and **spelling/dialect variants** (till/until, among/amongst, -ize/-ise…).
 - **Candidate pet phrases:** top bigrams and trigrams.
 
-**Transcribe the indexer's numbers verbatim.** Save the JSON next to the profile as `profiles/<name>/index.json` (same folder) — `functions/use.md`'s checker reads it later. For a corpus the indexer can't reach (pasted samples), fall back to careful manual counting and mark numbers as estimates.
+**Transcribe the indexer's numbers verbatim.** Save the JSON next to the profile as `profiles/<name>/index.json` (same folder) — `functions/write.md`'s checker reads it later. For a corpus the indexer can't reach (pasted samples), fall back to careful manual counting and mark numbers as estimates.
 
 ### Step 3: Read the four layers (the human-judgment work)
 

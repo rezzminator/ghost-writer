@@ -1,6 +1,6 @@
 # Using Ghostwriter
 
-Practical guide for generating a style profile and writing with it. For the methodology behind each step, see `SKILL.md` (the router), `functions/generate-profile.md` and `functions/use.md` (the workflows), and the files in `references/`.
+Practical guide for generating a style profile and writing with it. For the methodology behind each step, see `SKILL.md` (the router), `functions/generate-profile.md` and `functions/write.md` (the workflows), and the files in `references/`.
 
 The skill works in two halves:
 
@@ -66,7 +66,7 @@ Depth scales with the corpus: a large corpus should produce a dense, exhaustivel
 Using profiles/<name>/profile.md, write <the thing you want> in <name>'s voice.
 ```
 
-The skill reads the profile top-down (bans first, then cognitive moves, then rhetorical structure, then vocabulary), drafts, then runs a three-pass self-review — including `scripts/check_output.py` against the profile's index JSON — before delivering. The output ends with a short "Rules applied" note so you can see which patterns it leaned on.
+The skill reads the profile top-down (bans first, then cognitive moves, then rhetorical structure, then vocabulary), drafts, runs a three-pass self-review — including `scripts/check_output.py` against the profile's index JSON — then hands the draft to a fresh `review` agent that checks it against the profile and sends back any corrections, looping until it passes. The output ends with a short "Rules applied" note so you can see which patterns it leaned on.
 
 Key idea: **every profile inherits the `human` base layer.** Generating as a specific person still strips AI tells — the person's fingerprint sits on top of humanized prose, never on top of default-Claude prose. A documented density (e.g. "em-dash ~1/1000w") is a *ceiling*, not a license, and the literal `--` is never produced.
 

@@ -1,6 +1,6 @@
 ---
 name: ghostwriter
-version: "1.2.0"
+version: "1.3.0"
 repo: "https://github.com/mreza0100/ghost-writer"
 description: Use when the user wants to extract a reusable writing-style profile from a corpus, generate text in a specific person's style, audit or update an existing voice profile, or humanize AI-sounding text via the bundled human profile. Trigger on phrases like "match my writing style", "write like this", "make it sound like me", "voice profile", "voice DNA", "audit/update my style profile", or when the user pastes a substantial sample and asks for new text in the same voice. Do not use for generic copyediting, grammar cleanup, or broad tone shifts; this skill is for evidence-grounded reproduction of a writer's mechanical fingerprint, cognitive moves, rhetorical structure, and vocabulary.
 ---
@@ -16,14 +16,14 @@ This file is a **router**. It carries the cross-cutting rules that apply to ever
 | The user wants to… | Mode | Read this |
 |---|---|---|
 | Extract a profile from a corpus; calibrate it; audit it for drift; update it | A / A.5 / C / D | **`functions/generate-profile.md`** |
-| Write something in a profiled voice; humanize AI-sounding text | B | **`functions/use.md`** |
+| Write something in a profiled voice; humanize AI-sounding text | B | **`functions/write.md`** |
 
 Routing notes:
 
 - "Study how I write" / "build a voice profile" / "learn my style" / "here's my writing" → **generate-profile**.
-- "Write X like me" / "in the style of [person]" / "make it sound like me" / "humanize this" → **use**.
-- **Chained request** ("here's my writing, now draft X in my voice") → generate-profile (Mode A) first, then use (Mode B), in the same response.
-- If the user just asks for writing and names no profile → **use**, defaulting to the `human` profile.
+- "Write X like me" / "in the style of [person]" / "make it sound like me" / "humanize this" → **write**.
+- **Chained request** ("here's my writing, now draft X in my voice") → generate-profile (Mode A) first, then write (Mode B), in the same response.
+- If the user just asks for writing and names no profile → **write**, defaulting to the `human` profile.
 
 Read the matching function file in full before starting. Don't try to execute from this router alone — it has the principles, not the steps.
 
@@ -43,8 +43,9 @@ This is **not** a persona-direction skill. It captures observable, quotable mech
 - **Corpus is the source of truth.** If you can't quote it, it isn't a rule. Under-claiming beats over-claiming.
 - **Density, not presence.** Capture the *rate* ("em-dash ~1/1000w"), not the fact. A documented rate is also a *ceiling* for generation, never a license.
 - **Compute, don't estimate.** The countable layers come from `scripts/index_corpus.py` at extraction and are verified by `scripts/check_output.py` at generation. Counting beats guessing; the scripts caught real bugs that eyeballing missed.
-- **`human` is a base layer every profile inherits.** Generation is always `human` (strip LLM tells) + the person's fingerprint on top — never the fingerprint bolted onto default-Claude prose. The literal `--`, chatbot closers, and sycophancy stay banned for every profile. (Full treatment in `functions/use.md`.)
+- **`human` is a base layer every profile inherits.** Generation is always `human` (strip LLM tells) + the person's fingerprint on top — never the fingerprint bolted onto default-Claude prose. The literal `--`, chatbot closers, and sycophancy stay banned for every profile. (Full treatment in `functions/write.md`.)
 - **Depth scales with the corpus.** A 500-word sample → a short tentative profile; a 500k-word corpus → a dense reference document. A thin profile from a big corpus means you stopped reading too early. (Full treatment in `functions/generate-profile.md`.)
+- **Write in a fresh agent, then gate on an independent review.** Mode B writing happens in a freshly-spawned sub-agent that loads the profile + references first, never inline in the caller's accumulated context. The draft then passes an independent `review` agent that checks it against the profile; the writer fixes and re-submits until review passes. (Full treatment in `functions/write.md`.)
 
 ## Bundled references (read as needed)
 
@@ -65,8 +66,9 @@ This is **not** a persona-direction skill. It captures observable, quotable mech
 
 ## Version & updates
 
-**Current:** 1.2.0 · **Repo:** https://github.com/mreza0100/ghost-writer
+**Current:** 1.3.0 · **Repo:** https://github.com/mreza0100/ghost-writer
 
+- **1.3.0** — Renamed `functions/use.md` → `functions/write.md` and added an independent **review gate**: after the writer drafts, a fresh `review` agent (`functions/review.md`) checks the draft against the profile and returns PASS or specific remarks; the writer fixes and re-submits until it passes (capped at three rounds). Fresh-eyes verification catches profile drift the writer is blind to.
 - **1.2.0** — The indexer and verifier scripts (`scripts/index_corpus.py`, `scripts/check_output.py`) and the `functions/` router targets are now bundled in the repo (previously described in the changelog but not shipped). Added a standalone `USE.md` quickstart and polished the reference layers (extraction-checklist, llm-isms, vocabulary-fingerprint). `.gitignore` now excludes generated index JSON and `.bak` backups.
 - **1.1.1** — Indexer hardening for scraped/exported corpora: strip per-record metadata (`Source:`/timestamp/URL lines) and social-export attribution bylines (`— Name (@handle) date`) before tokenizing, so the index is reproducible without manual cleaning (these were polluting multi-format runs with `t`/`source`/`@handle` tokens and inflating the em-dash rate). Added median sentence length alongside σ, robust to pasted-list outliers.
 - **1.1.0** — Split into router + `functions/generate-profile.md` + `functions/use.md` for progressive disclosure (router stays cheap on every trigger; heavy workflows load only when needed). Added keyness-ranked distinctive lexicon and spelling-variant detection to the indexer.
