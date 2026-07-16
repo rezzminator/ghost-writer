@@ -1,8 +1,8 @@
 ---
 name: ghostwriter
-version: '1.4.1'
-repo: 'https://github.com/mreza0100/ghost-writer'
-description: Use when the user wants to extract a reusable writing-style profile from a corpus, generate text in a specific person's style, audit or update an existing voice profile, or humanize AI-sounding text via the bundled human profile. Trigger on phrases like "match my writing style", "write like this", "make it sound like me", "voice profile", "voice DNA", "audit/update my style profile", or when the user pastes a substantial sample and asks for new text in the same voice. Do not use for generic copyediting, grammar cleanup, or broad tone shifts; this skill is for evidence-grounded reproduction of a writer's mechanical fingerprint, cognitive moves, rhetorical structure, and vocabulary.
+version: "1.4.2"
+repo: "https://github.com/mreza0100/ghost-writer"
+description: Use when the user wants to extract a reusable writing-style profile from a corpus, generate text in a specific person's style, audit or update an existing voice profile, or humanize AI-sounding text via the bundled human profile. Trigger on phrases like "match my writing style", "write like this", "make it sound like me", "voice profile", "voice DNA", "audit/update my style profile", or when the user pastes a substantial sample and asks for new text in the same voice. Do not use for generic copyediting, grammar cleanup, or broad tone shifts.
 ---
 
 # Ghostwriter
