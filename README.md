@@ -1,6 +1,6 @@
 # Ghostwriter
 
-**Version:** 1.4.1 · **License:** MIT · **Repo:** [github.com/mreza0100/ghost-writer](https://github.com/mreza0100/ghost-writer)
+**Version:** 1.4.1 · **License:** MIT · **Repo:** [github.com/rezzminator/ghost-writer](https://github.com/rezzminator/ghost-writer)
 
 A Claude Code skill that captures how someone writes — across four layers: the mechanical fingerprint (sentence rhythm, punctuation density, formatting quirks), the cognitive moves (how they frame problems, what they refuse, where they concretize, how they shape conclusions), the rhetorical structure (the essay-scale shape: opening pattern, full argument arc, scale-shifts, example-texture mix, reference horizon, self-reference patterns, term-coining, aphorism placement), and the vocabulary fingerprint (the specific words they reach for when alternatives exist) — from a corpus of their writing, and generates new text that reproduces all four layers.
 
